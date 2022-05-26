@@ -1,0 +1,25 @@
+.order_product {
+  display: flex;
+  max-height: 100px;
+
+  background-color: #f5faf5;
+
+  &__image {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    flex: 0 1 100px;
+  }
+
+  &__text__container {
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 80%;
+  }
+
+  &__text {
+    @include text(18px, 400, 20px);
+  }
+}

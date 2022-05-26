@@ -1,0 +1,6 @@
+.admin-catalog-choose {
+  @include main(100px);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}

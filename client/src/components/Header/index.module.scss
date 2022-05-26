@@ -1,0 +1,49 @@
+.header {
+  height: 80px;
+  padding: 14px;
+  position: sticky;
+  top: 0;
+  background-color: $primary_color;
+  z-index: 10;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  flex: 0 1 6.67%;
+}
+
+.link {
+  @include text(18px, 400, 20px);
+  text-decoration: none;
+  flex: 0 1 25%;
+
+  &:hover {
+    border-bottom: 2px solid $secondary_color;
+  }
+}
+.links {
+  flex: 0 1 26.46%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  flex: 0 1 34.78%;
+  display: flex;
+  justify-content: space-between;
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .action__text {
+      @include text(18px, 400, 20px);
+      text-decoration: none;
+    }
+  }
+}

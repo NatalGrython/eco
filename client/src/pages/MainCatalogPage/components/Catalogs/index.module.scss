@@ -1,0 +1,7 @@
+.catalog__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include main(100px);
+  padding-top: 0px;
+}

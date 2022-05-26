@@ -1,0 +1,16 @@
+.category {
+  @include main(100px);
+
+  .category__title_wrapper {
+    max-width: 793px;
+    .category__title {
+      @include text(36px, 600, 40px);
+    }
+  }
+
+  .category__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+}

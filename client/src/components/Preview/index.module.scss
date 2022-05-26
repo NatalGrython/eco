@@ -1,0 +1,21 @@
+.preview {
+  background-image: url("@images/preview.png");
+  background-size: cover;
+  height: 678px;
+  @include main(0px);
+  .preview__wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .preview__title {
+      @include text(48px, 600, 54px);
+    }
+
+    .catalog__wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}

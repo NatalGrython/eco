@@ -1,0 +1,50 @@
+.energy {
+  background-color: #f5faf5;
+  max-width: 560px;
+  border-left: 7px solid $secondary_color;
+  height: 312px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.22);
+  .energy__container {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100%;
+
+    .energy__component {
+      height: 100%;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 35px;
+
+      .energy__title {
+        @include text(22px, 400, 24px);
+        flex: 0 1 50px;
+        max-width: 370px;
+      }
+
+      .energy__text__container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .energy__text {
+          flex: 0 1 30px;
+          @include text(18px, 600, 20px);
+          opacity: 0.8;
+        }
+        .energy__input_container {
+          max-width: 276px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .energy_input {
+          max-width: 73px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

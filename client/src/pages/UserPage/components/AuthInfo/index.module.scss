@@ -1,0 +1,16 @@
+.auth-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &__title {
+    @include text(36px, 600, 40px);
+    flex: 0 1 10%;
+  }
+  &__input__content {
+    flex: 0 1 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

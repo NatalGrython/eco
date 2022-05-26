@@ -1,0 +1,36 @@
+.preview {
+  background-image: url("@images/background.png");
+  background-size: cover;
+
+  @include main(100px);
+
+  .preview__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .preview__description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .preview__title {
+        @include text(36px, 600, 40px, $primary_color);
+      }
+
+      .preview__text {
+        @include text(18px, 400, 20px, $primary_color);
+      }
+
+      .preview__button {
+        @include big_button;
+      }
+    }
+
+    .preview__image {
+      background-image: url("@images/bathroom.png");
+      background-size: cover;
+      width: 650px;
+      height: 314px;
+    }
+  }
+}

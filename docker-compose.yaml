@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
+  backend:
+    build: ./server
+    environment:
+      PORT: ${SERVER_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+      HOST_DB: ${POSTGRES_HOST}
+      PORT_DB: ${POSTGRES_PORT}
+      USERNAME_DB: ${POSTGRES_USER}
+      PASSWORD_DB: ${POSTGRES_PASSWORD}
+      DATABASE_NAME_DB: ${POSTGRES_DB}
+      VK_ID: ${VK_ID}
+      VK_SECRET: ${VK_SECRET}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_SECRET: ${GOOGLE_SECRET}
+    restart: always
+    links:
+      - postgres
+  frontend:
+    build: ./client
+    environment:
+      ECO_SERVER_HOST: ${SERVER_HOST}
+      ECO_SERVER_PORT: ${SERVER_PORT}
+      ECO_VK_ID: ${VK_ID}
+      ECO_JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "3000:80"
+    restart: always
+    links:
+      - backend

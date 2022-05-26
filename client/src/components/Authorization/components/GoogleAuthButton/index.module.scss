@@ -1,0 +1,17 @@
+.google {
+  &__button {
+    padding-left: 5px;
+    gap: 15px;
+    width: 520px;
+    height: 67px;
+    border: none;
+    background-color: #4285f4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    span {
+      @include text(28px, 700, 30px, $primary_color);
+    }
+  }
+}

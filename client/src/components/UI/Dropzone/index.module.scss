@@ -1,0 +1,19 @@
+.dropdown__container {
+  position: relative;
+}
+
+.dropdown__error {
+  border: 3px solid red;
+  div {
+    opacity: 0.3;
+  }
+}
+
+.error_text {
+  @include text(18px, 600, 20px, red);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}

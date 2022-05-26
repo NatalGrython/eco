@@ -1,0 +1,26 @@
+.range {
+  display: flex;
+  align-items: center;
+
+  .text {
+    @include text(18px, 600, 30px, rgb(0, 0, 0, 0.6));
+  }
+
+  .range_container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .input {
+    padding-left: 6px;
+    padding-right: 6px;
+    display: flex;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0, 0.6);
+    max-width: 61px;
+    height: 23px;
+    @include text(14px, 600, 30px, rgb(0, 0, 0, 0.6));
+    border-radius: 20px;
+  }
+}

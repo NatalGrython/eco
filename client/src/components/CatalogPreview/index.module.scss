@@ -1,0 +1,19 @@
+.catalog_preview {
+  height: 592px;
+  flex: 0 1 692px;
+
+  .catalog_preview_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .catalog_preview_title {
+      @include text(36px, 600, 40px);
+    }
+
+    .catalog_preview_container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

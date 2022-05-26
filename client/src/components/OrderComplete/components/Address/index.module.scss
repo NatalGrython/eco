@@ -1,0 +1,9 @@
+.address {
+  display: flex;
+  flex-direction: column;
+
+  .address__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,60 @@
+.user-order {
+  &__preview {
+    flex: 0 1 90%;
+    display: flex;
+    justify-content: space-between;
+
+    &__time {
+      @include text(20px, 600, 30px);
+      opacity: 0.6;
+    }
+  }
+
+  &__item__panel {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__overview {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+
+    &__text {
+      @include text(20px, 600, 30px);
+    }
+  }
+
+  &__accordion_button {
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+
+    justify-content: space-between;
+
+    &::after {
+      display: inline-block;
+      content: "";
+      height: 10px;
+      width: 10px;
+      margin-right: 12px;
+      border-bottom: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      transform: rotate(-45deg);
+      transition: all 0.2s;
+    }
+    &[aria-expanded="true"]::after {
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.promise {
+  background-image: url("@images/background.png");
+  background-size: cover;
+  @include main(100px);
+  height: 321px;
+  .promise__wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .promise__container {
+      height: 100%;
+
+      display: flex;
+      max-width: 593px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      .promise__title {
+        @include circle(calc(100% - 32.5px), calc(100% - 27.5px));
+        @include text(36px, 600, 40px, $primary_color);
+      }
+
+      .promise__text {
+        text-align: center;
+        @include text(18px, 400, 20px, $primary_color);
+      }
+    }
+  }
+}

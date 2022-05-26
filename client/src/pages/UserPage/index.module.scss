@@ -1,0 +1,44 @@
+.user__page {
+  @include main(100px);
+  height: 100%;
+
+  .user__page__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 80px;
+
+    height: 100%;
+
+    .user__page__layout {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      gap: 50px;
+
+      .user__page__links {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 10%;
+        align-items: flex-start;
+        gap: 25px;
+        .user__page__link {
+          background-color: inherit;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 30px;
+          padding-left: 3px;
+          span {
+            @include text(27px, 400, 20px);
+          }
+        }
+        .user__page__link_active {
+          border-left: 4px solid $secondary_color;
+        }
+      }
+    }
+  }
+}

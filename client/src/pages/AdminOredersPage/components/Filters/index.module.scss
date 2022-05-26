@@ -1,0 +1,62 @@
+.filters {
+  @include main(100px);
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__title__container {
+    display: flex;
+    gap: 14px;
+  }
+
+  &__title {
+    @include text(36px, 600, 40px);
+  }
+
+  &__buttons {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input__container {
+    max-width: 581px;
+    flex: 1;
+  }
+
+  &__button {
+    span {
+      @include text(18px, 600, 20px);
+    }
+    padding: 18px 5px;
+    border: none;
+    background-color: $primary_color;
+
+    &__active {
+      @extend .filters__button;
+      border: 1px solid $secondary_color;
+    }
+  }
+  &__sort {
+    display: flex;
+    gap: 12px;
+
+    &__title {
+      @include text(18px, 600, 20px);
+      opacity: 0.6;
+    }
+  }
+
+  &__sort__button {
+    border: none;
+    background-color: inherit;
+    @include text(18px, 600, 20px);
+    opacity: 0.6;
+    &__active {
+      @extend .filters__sort__button;
+      opacity: 1;
+    }
+  }
+}

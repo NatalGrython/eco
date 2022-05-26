@@ -1,0 +1,51 @@
+.choose {
+  position: relative;
+
+  &__one {
+    display: flex;
+  }
+
+  &__title__container {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__edit__button {
+    @include small_button;
+  }
+
+  &__title {
+    @include text(36px, 600, 40px);
+  }
+
+  &__three_container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  &__arrow {
+    &__left {
+      position: absolute;
+      border: none;
+      background-color: inherit;
+      right: 90%;
+      top: 40%;
+    }
+
+    &__right {
+      position: absolute;
+      border: none;
+      background-color: inherit;
+      left: 90%;
+      top: 40%;
+    }
+  }
+}

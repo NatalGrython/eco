@@ -1,0 +1,36 @@
+.admin-input {
+  display: flex;
+  width: 100%;
+  &__input {
+    padding: 5px 8px;
+    background: #ffffff;
+    border: 1px solid rgba(34, 31, 31, 0.5);
+    border-radius: 10px;
+    @include text(18px, 600, 30px);
+    width: 100%;
+  }
+
+  &__input__error {
+    @extend .admin-input__input;
+    border: 1px solid $danger_color;
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  &__error_container {
+    border: 1px solid $danger_color;
+    border-radius: 10px;
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 8px;
+  }
+
+  &__error {
+    @include text(14px, 600, 30px, $primary_color);
+  }
+}

@@ -1,0 +1,10 @@
+.button {
+  width: 520px;
+  height: 67px;
+  border: none;
+  background-color: $secondary_color;
+  border-radius: 10px;
+  span {
+    @include text(32px, 700, 35px, $primary_color);
+  }
+}

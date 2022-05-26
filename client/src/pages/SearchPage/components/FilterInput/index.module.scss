@@ -1,0 +1,119 @@
+.search_input {
+  display: flex;
+  width: 100%;
+
+  &_icon_container_left {
+    border: 1px solid rgb(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    opacity: 0.6;
+    padding-right: 12px;
+  }
+
+  &_icon_container_right {
+    border: 1px solid rgb(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding-left: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    opacity: 0.6;
+    padding-right: 12px;
+  }
+
+  &__input {
+    flex: 1;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    opacity: 0.6;
+    @include text(18px, 400, 20px, rgb(0, 0, 0, 0.6));
+    border: 1px solid rgb(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: none;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.menu {
+  width: 370px;
+  height: 530px;
+  background-color: $primary_color;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 310px;
+  }
+
+  &__catalogs {
+    overflow-y: scroll;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__content {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  &__title {
+    opacity: 0.8;
+    @include text(20px, 700, 22px, rgb(0, 0, 0, 1));
+  }
+
+  &__energy {
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  &__price {
+    padding-top: 20px;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+}

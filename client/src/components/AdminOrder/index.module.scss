@@ -1,0 +1,85 @@
+.admin-order {
+  @include main(40px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  &__text {
+    @include text(18px, 600, 20px);
+  }
+
+  &__header {
+    padding-top: 29px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $secondary_color;
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__footer {
+    padding-top: 46px;
+    padding-bottom: 44px;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__main {
+    padding-top: 47px;
+    padding-bottom: 25px;
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__description {
+      display: flex;
+      flex-direction: column;
+      max-width: 356px;
+      gap: 15px;
+      &__title {
+        @include text(18px, 600, 20px);
+        margin-bottom: 15px;
+      }
+      &__text {
+        @include text(18px, 600, 20px);
+        opacity: 0.6;
+      }
+    }
+
+    &__maintenance {
+      display: flex;
+      flex-direction: column;
+      flex: 0 60%;
+      gap: 15px;
+    }
+
+    &__filing {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__total {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}

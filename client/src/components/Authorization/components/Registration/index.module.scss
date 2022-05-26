@@ -1,0 +1,38 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  padding-top: 54px;
+  padding-bottom: 58px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  height: 100%;
+
+  &__title {
+    @include text(40px, 600, 44px);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 0 1 25%;
+    gap: 50px;
+  }
+
+  &__button__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 25%;
+  }
+
+  &__text {
+    @include text(20px, 400, 22px);
+
+    &__bold {
+      @include text(20px, 700, 22px);
+    }
+  }
+}

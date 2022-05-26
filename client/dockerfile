@@ -1,0 +1,31 @@
+FROM node:latest as builder
+
+COPY package.json package-lock.json ./
+
+RUN npm i && mkdir /web && mv ./node_modules ./web
+
+WORKDIR /web
+
+COPY . . 
+
+RUN npm run build
+
+FROM nginx:latest
+
+COPY ./.nginx/nginx.template.conf /etc/nginx/nginx.template.conf
+COPY ./.nginx/run_nginx.sh /
+
+RUN chmod +x /run_nginx.sh
+
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=builder /web/dist /usr/share/nginx/html
+
+ENV ECO_SERVER_HOST=localhost
+ENV ECO_SERVER_PORT=5000
+
+EXPOSE 80
+
+ENTRYPOINT [ "/run_nginx.sh" ]
+

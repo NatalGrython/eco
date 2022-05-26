@@ -1,0 +1,8 @@
+.grid {
+  // @include main(100px);
+  .grid__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr 1fr 1fr;
+  }
+}

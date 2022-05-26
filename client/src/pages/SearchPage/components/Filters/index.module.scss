@@ -1,0 +1,30 @@
+.filters {
+  padding-top: 40px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__sort {
+    display: flex;
+    gap: 12px;
+
+    &__title {
+      @include text(18px, 600, 20px);
+      opacity: 0.6;
+    }
+  }
+
+  &__sort__button {
+    border: none;
+    background-color: inherit;
+    @include text(18px, 600, 20px);
+    opacity: 0.6;
+    &__active {
+      @extend .filters__sort__button;
+      opacity: 1;
+    }
+  }
+}
