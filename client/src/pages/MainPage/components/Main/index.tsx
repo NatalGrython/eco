@@ -1,9 +1,16 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import classNames from "./index.module.scss";
 
 interface MainProps {}
 
 const Main: FC<MainProps> = () => {
+  const navigate = useNavigate();
+
+  const onClickButton = () => {
+    navigate("/catalog");
+  };
+
   return (
     <div className={classNames.main}>
       <div className="container">
@@ -16,7 +23,10 @@ const Main: FC<MainProps> = () => {
               Мы стремимся сделать более здоровый, осознанный выбор легким и
               доступным для всех
             </span>
-            <button className={classNames["main__button"]}>
+            <button
+              onClick={onClickButton}
+              className={classNames["main__button"]}
+            >
               <span>Перейти в каталог</span>
             </button>
           </div>

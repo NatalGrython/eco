@@ -26,6 +26,7 @@ const CatalogPreview: FC<CatalogPreviewProps> = ({ title, products }) => {
                 price={item.price}
                 weight={item.weight}
                 imagePath={item.imagePath}
+                id={item.id}
                 //@ts-ignore
                 preview={index === array.length - 1}
                 //@ts-ignore

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { checkAuthorizationAction } from "./store/auth/actions";
 import { getProductsAction } from "./store/product/action";
 import { getCatalogsAction } from "./store/catalog/action";
+import { useChangeLocation } from "./hooks/useChangeLocation";
 
 const routeSelector = (state: RootState) => {
   const stateRoutes = state.routes.routes;
@@ -28,6 +29,7 @@ function App() {
   const { routes } = useSelector(routeSelector);
   const routeJsx = useRoutes(routes);
   useInit();
+  useChangeLocation();
 
   return routeJsx;
 }

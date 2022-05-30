@@ -59,9 +59,6 @@ const Header: FC<HeaderProps> = () => {
                 <Link className={classNames.link} to="/favorite">
                   Избранное
                 </Link>
-                <Link className={classNames.link} to="/about">
-                  О нас
-                </Link>
               </div>
             )}
             <div className={classNames.actions}>
