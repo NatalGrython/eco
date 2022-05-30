@@ -10,11 +10,11 @@ COPY . .
 
 RUN touch .env 
 
-RUN echo $${ECO_SERVER_HOST} >> .env
-RUN echo $${ECO_SERVER_PORT} >> .env
-RUN echo $${ECO_VK_ID} >> .env
-RUN echo $${ECO_CLIENT_PORT} >> .env
-RUN echo $${ECO_JWT_SECRET} >> .env
+RUN echo "ECO_SERVER_HOST: $${ECO_SERVER_HOST}" >> .env
+RUN echo "ECO_SERVER_PORT: $${ECO_SERVER_PORT}" >> .env
+RUN echo "ECO_VK_ID: $${ECO_VK_ID}" >> .env
+RUN echo "ECO_CLIENT_PORT: $${ECO_CLIENT_PORT}" >> .env
+RUN echo "ECO_JWT_SECRET: $${ECO_JWT_SECRET}"  >> .env
 
 RUN npm run build
 
