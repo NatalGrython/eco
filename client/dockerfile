@@ -30,6 +30,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=builder /web/dist /usr/share/nginx/html
 
+WORKDIR /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -25,6 +25,8 @@ services:
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_SECRET: ${GOOGLE_SECRET}
       HOST: ${SERVER_HOST}
+    volumes:
+      - "./public/:./public"
     restart: always
     links:
       - postgres
@@ -40,6 +42,8 @@ services:
       ECO_JWT_SECRET: ${JWT_SECRET}
     ports:
       - "${CLIENT_PORT}:${CLIENT_PORT}"
+    volumes:
+      - "./public/:./public"
     restart: always
     links:
       - backend
