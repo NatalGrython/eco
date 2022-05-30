@@ -3,7 +3,7 @@ function replaceAll(string: string, search: string, replace: string) {
 }
 
 export const createPath = (path: string) =>
-  `http://localhost:3001/${replaceAll(
+  `http://${process.env.HOST}:${process.env.PORT}/${replaceAll(
     path.replace('public\\', '').replace('public/', ''),
     '\\',
     '/',

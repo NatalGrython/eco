@@ -24,6 +24,7 @@ services:
       VK_SECRET: ${VK_SECRET}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_SECRET: ${GOOGLE_SECRET}
+      HOST: ${SERVER_HOST}
     restart: always
     links:
       - postgres
