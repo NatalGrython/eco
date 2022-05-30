@@ -26,7 +26,7 @@ services:
       GOOGLE_SECRET: ${GOOGLE_SECRET}
       HOST: ${SERVER_HOST}
     volumes:
-      - "./public/:./public"
+      - "./public/:/public"
     restart: always
     links:
       - postgres
@@ -43,7 +43,7 @@ services:
     ports:
       - "${CLIENT_PORT}:${CLIENT_PORT}"
     volumes:
-      - "./public/:./public"
+      - "./public/:/public"
     restart: always
     links:
       - backend
