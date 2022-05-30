@@ -61,14 +61,11 @@ export class User {
   phone: string;
 
   @OneToMany(() => Order, (order) => order.user, { cascade: true })
-  @JoinColumn()
   orders: Order[];
 
   @OneToOne(() => Basket, (basket) => basket.user, { cascade: true })
-  @JoinColumn()
   basket: Basket;
 
   @OneToOne(() => Favorite, (favorite) => favorite.user, { cascade: true })
-  @JoinColumn()
   favorite: Favorite;
 }

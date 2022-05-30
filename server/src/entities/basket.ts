@@ -16,7 +16,6 @@ export class Basket {
   id: number;
 
   @OneToOne(() => User, (user) => user.basket)
-  @JoinColumn()
   user: User;
 
   @OneToMany(
@@ -24,6 +23,5 @@ export class Basket {
     (basketToProduct) => basketToProduct.basket,
     { cascade: true },
   )
-  @JoinColumn()
   basketToProducts: BasketToProduct[];
 }

@@ -23,6 +23,5 @@ export class Catalog {
     onUpdate: 'CASCADE',
     createForeignKeyConstraints: false,
   })
-  @JoinColumn()
   products: Product[];
 }

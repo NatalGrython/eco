@@ -16,7 +16,6 @@ export class Order {
   id: number;
 
   @ManyToOne(() => User, (user) => user.orders)
-  @JoinColumn()
   user: User;
 
   @Column()

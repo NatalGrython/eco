@@ -17,12 +17,10 @@ export class BasketToProduct {
   amount: number;
 
   @ManyToOne(() => Basket, (basket) => basket.basketToProducts)
-  @JoinColumn()
   basket: Basket;
 
   @ManyToOne(() => Product, (product) => product.basketToProducts, {
     cascade: true,
   })
-  @JoinColumn()
   product: Product;
 }
