@@ -19,7 +19,7 @@ export class Catalog {
   imagePath: string;
 
   @OneToMany(() => Product, (product) => product.catalog, {
-    cascade: true,
+    cascade: ['remove', 'update'],
   })
   @JoinColumn()
   products: Product[];
