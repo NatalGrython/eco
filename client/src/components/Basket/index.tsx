@@ -21,7 +21,7 @@ const Basket: FC<BasketProps> = () => {
   const dispatch = useDispatch();
 
   const finalPrice = basketProducts.reduce((acc, product) => {
-    acc = acc + product.amount * product.price;
+    acc = acc + product!.amount * product!.price;
     return acc;
   }, 0);
 
@@ -46,13 +46,13 @@ const Basket: FC<BasketProps> = () => {
               {basketProducts.length ? (
                 basketProducts.map((item) => (
                   <BasketProduct
-                    id={item.id}
-                    key={item.id}
-                    price={item.price}
-                    weigh={item.weight}
-                    title={item.name}
-                    imagePath={item.imagePath}
-                    amount={item.amount}
+                    id={item!.id}
+                    key={item!.id}
+                    price={item!.price}
+                    weigh={item!.weight}
+                    title={item!.name}
+                    imagePath={item!.imagePath}
+                    amount={item!.amount}
                   />
                 ))
               ) : (
