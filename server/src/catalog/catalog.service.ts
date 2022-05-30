@@ -45,7 +45,7 @@ export class CatalogService {
 
     await this.catalogRepository
       .createQueryBuilder('catalog')
-      .where('id =: id', { id })
+      .where('id = :id', { id })
       .delete()
       .execute();
 
