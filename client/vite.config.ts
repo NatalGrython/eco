@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import scssDts from "vite-plugin-sass-dts";
 import { ViteAliases } from "vite-aliases";
@@ -17,6 +17,13 @@ export default defineConfig(({ mode }) => {
     assetsInclude: ["**/*.png"],
 
     envPrefix: "ECO",
+
+    server: {
+      proxy: {
+        "/api": "http://80.249.150.241/",
+        "/public": "http://80.249.150.241/",
+      },
+    },
 
     css: {
       preprocessorOptions: {
