@@ -4,6 +4,7 @@ declare const classNames: {
   readonly basket: "basket";
   readonly basket__title: "basket__title";
   readonly basket__products__container: "basket__products__container";
+  readonly void_text: "void_text";
   readonly basket__total: "basket__total";
   readonly basket__total_wrapper: "basket__total_wrapper";
   readonly basket__prices: "basket__prices";
@@ -18,6 +19,7 @@ export type ClassNames =
   | "basket"
   | "basket__title"
   | "basket__products__container"
+  | "void_text"
   | "basket__total"
   | "basket__total_wrapper"
   | "basket__prices"

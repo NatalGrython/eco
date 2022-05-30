@@ -27,6 +27,11 @@
     flex: 1 1 50%;
   }
 
+  .void_text {
+    margin-top: 40px;
+    @include text(32px, 600, 20px);
+  }
+
   .basket__total {
     display: flex;
     justify-content: space-between;
