@@ -8,4 +8,6 @@ RUN npm install
 
 RUN npm run build
 
+RUN npm run seed
+
 ENTRYPOINT npm run start:prod
