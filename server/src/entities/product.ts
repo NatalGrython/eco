@@ -51,6 +51,7 @@ export class Product {
   imagePath: string;
 
   @ManyToOne(() => Catalog, (catalog) => catalog.products)
+  @JoinColumn()
   catalog: Catalog;
 
   @ManyToMany(() => Favorite, (favorite) => favorite.products)
@@ -60,8 +61,10 @@ export class Product {
     () => BasketToProduct,
     (basketToProduct) => basketToProduct.product,
   )
+  @JoinColumn()
   basketToProducts: BasketToProduct[];
 
   @OneToMany(() => OrderToProduct, (orderToProduct) => orderToProduct.product)
+  @JoinColumn()
   orderToProduct: OrderToProduct[];
 }

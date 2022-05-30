@@ -45,6 +45,7 @@ export class Order {
   @OneToMany(() => OrderToProduct, (orderToProduct) => orderToProduct.order, {
     cascade: true,
   })
+  @JoinColumn()
   orderToProduct: OrderToProduct[];
 
   @CreateDateColumn()

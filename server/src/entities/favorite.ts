@@ -15,8 +15,10 @@ export class Favorite {
   id: number;
 
   @OneToOne(() => User, (user) => user.favorite)
+  @JoinColumn()
   user: User;
 
   @ManyToMany(() => Product, { cascade: true })
+  @JoinTable()
   products: Product[];
 }
