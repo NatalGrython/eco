@@ -52,7 +52,7 @@ const Choose: FC<ChooseProps> = ({
     }
   };
 
-  if (items.length < 3) {
+  if (items.length <= 3) {
     return (
       <div className={classNames.choose}>
         <div className="container">

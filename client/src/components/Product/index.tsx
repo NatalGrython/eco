@@ -59,6 +59,10 @@ const Product: FC<ProductProps> = (props) => {
     const onClick = () => {
       navigate(`/product/${id}`);
     };
+    const onClickCategory = (event: MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
+      navigate(catalogPath);
+    };
     return (
       <div className={classNames.product}>
         <div
@@ -69,7 +73,10 @@ const Product: FC<ProductProps> = (props) => {
           <button className={classNames["product__like_btn"]}>
             <Like liked={liked} />
           </button>
-          <button className={classNames["product_preview_catalog_btn"]}>
+          <button
+            onClick={onClickCategory}
+            className={classNames["product_preview_catalog_btn"]}
+          >
             <span>Смотреть категорию</span>
           </button>
         </div>
@@ -156,7 +163,7 @@ const Product: FC<ProductProps> = (props) => {
   return (
     <div className={classNames.product}>
       <div
-        onClick={(event) => onClick}
+        onClick={onClick}
         className={classNames["product__image"]}
         style={{ backgroundImage: `url('${imagePath}')` }}
       >

@@ -1,9 +1,16 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import classNames from "./index.module.scss";
 
 interface PreviewProps {}
 
 const Preview: FC<PreviewProps> = () => {
+  const navigate = useNavigate();
+
+  const onClickButton = () => {
+    navigate("/catalog");
+  };
+
   return (
     <div className={classNames.preview}>
       <div className="container">
@@ -16,7 +23,10 @@ const Preview: FC<PreviewProps> = () => {
               Обновите свою повседневную рутину с помощью нашей полезной
               коллекции средств личной гигиены
             </span>
-            <button className={classNames["preview__button"]}>
+            <button
+              onClick={onClickButton}
+              className={classNames["preview__button"]}
+            >
               <span>Смотреть товары</span>
             </button>
           </div>

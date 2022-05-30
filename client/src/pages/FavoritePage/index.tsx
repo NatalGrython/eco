@@ -12,12 +12,20 @@ const FavoritePage: FC<FavoritePageProps> = () => {
   return (
     <>
       <div className={classNames["favoritepage__wrapper"]}>
-        <Grid
-          component={Product}
-          items={favoriteProducts}
-          keyExtractor={(item) => item.id}
-          rowGap="36px"
-        />
+        {favoriteProducts.length ? (
+          <Grid
+            component={Product}
+            items={favoriteProducts}
+            keyExtractor={(item) => item.id}
+            rowGap="36px"
+          />
+        ) : (
+          <div className="container">
+            <span className={classNames["void-text"]}>
+              Вы еще ничего не выбрали
+            </span>
+          </div>
+        )}
       </div>
     </>
   );

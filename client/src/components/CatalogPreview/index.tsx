@@ -9,6 +9,7 @@ interface CatalogPreviewProps {
 }
 
 const CatalogPreview: FC<CatalogPreviewProps> = ({ title, products }) => {
+  console.log("🚀 ~ file: index.tsx ~ line 12 ~ products", products);
   if (!products.length) {
     return null;
   }
@@ -26,6 +27,7 @@ const CatalogPreview: FC<CatalogPreviewProps> = ({ title, products }) => {
                 price={item.price}
                 weight={item.weight}
                 imagePath={item.imagePath}
+                id={item.id}
                 //@ts-ignore
                 preview={index === array.length - 1}
                 //@ts-ignore
