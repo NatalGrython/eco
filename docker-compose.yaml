@@ -41,6 +41,7 @@ services:
         ECO_VK_ID: ${VK_ID}
         ECO_CLIENT_PORT: ${CLIENT_PORT}
         ECO_JWT_SECRET: ${JWT_SECRET}
+        ECO_CLIENT_HOST: ${ECO_CLIENT_HOST}
     environment:
       ECO_SERVER_HOST: ${SERVER_HOST}
       ECO_SERVER_PORT: ${SERVER_PORT}
