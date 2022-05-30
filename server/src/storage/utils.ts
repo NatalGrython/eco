@@ -3,4 +3,4 @@ function replaceAll(string: string, search: string, replace: string) {
 }
 
 export const createPath = (path: string) =>
-  `${replaceAll(path.replace('public\\', 'public/'), '\\', '/')}`;
+  `/${replaceAll(path.replace('public\\', 'public/'), '\\', '/')}`;
