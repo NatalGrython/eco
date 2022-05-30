@@ -22,6 +22,7 @@ export class UserSeederService {
     return this.userRepository.save({
       login: 'admin',
       password: await hash('adminadmin', 5),
+      role: 'admin',
     });
   }
 }
