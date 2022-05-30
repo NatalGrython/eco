@@ -84,12 +84,14 @@ export class AuthService {
     const VKDATA = {
       client_id: process.env.VK_ID,
       client_secret: process.env.VK_SECRET,
+      client_host: process.env.CLIENT_HOST,
+      client_port: process.env.CLIENT_PORT,
     };
 
     const url = queryBuilder('https://oauth.vk.com/access_token', {
       client_id: VKDATA.client_id,
       client_secret: VKDATA.client_secret,
-      redirect_uri: `http://localhost:3000/auth/vk`,
+      redirect_uri: `http://${VKDATA.client_host}:${VKDATA.client_port}/auth/vk`,
       code: code,
       v: '5.131',
     });
