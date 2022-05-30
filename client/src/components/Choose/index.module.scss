@@ -14,6 +14,10 @@
     @include small_button;
   }
 
+  &__delete__button {
+    @include small_button(#fc3f3f);
+  }
+
   &__title {
     @include text(36px, 600, 40px);
   }
@@ -47,5 +51,9 @@
       left: 90%;
       top: 40%;
     }
+  }
+  &__button_container {
+    display: flex;
+    gap: 12px;
   }
 }

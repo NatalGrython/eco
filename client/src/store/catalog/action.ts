@@ -14,6 +14,9 @@ import {
   UPDATE_CATALOG_REJECT,
   UPDATE_CATALOG_PRODUCTS,
   UPDATE_CATALOG_PRODUCTS_SUCCESS,
+  DELETE_CATALOG,
+  DELETE_CATALOG_SUCCESS,
+  DELETE_CATALOG_REJECT,
 } from "./constants";
 
 export const createCatalogAction =
@@ -41,3 +44,9 @@ export const updateCatalogProductsAction = createAction<Product>(
 export const updateCatalogProductsSuccessAction = createAction<Catalog[]>(
   UPDATE_CATALOG_PRODUCTS_SUCCESS
 );
+
+export const deleteCatalogAction = createAction<number>(DELETE_CATALOG);
+export const deleteCatalogSuccessAction = createAction<Catalog[]>(
+  DELETE_CATALOG_SUCCESS
+);
+export const deleteCatalogRejectAction = createAction(DELETE_CATALOG_REJECT);

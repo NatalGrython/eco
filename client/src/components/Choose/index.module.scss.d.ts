@@ -3,11 +3,13 @@ declare const classNames: {
   readonly choose__one: "choose__one";
   readonly choose__title__container: "choose__title__container";
   readonly choose__edit__button: "choose__edit__button";
+  readonly choose__delete__button: "choose__delete__button";
   readonly choose__title: "choose__title";
   readonly choose__three_container: "choose__three_container";
   readonly choose__wrapper: "choose__wrapper";
   readonly choose__arrow__left: "choose__arrow__left";
   readonly choose__arrow__right: "choose__arrow__right";
+  readonly choose__button_container: "choose__button_container";
 };
 export default classNames;
 export type ClassNames =
@@ -15,8 +17,10 @@ export type ClassNames =
   | "choose__one"
   | "choose__title__container"
   | "choose__edit__button"
+  | "choose__delete__button"
   | "choose__title"
   | "choose__three_container"
   | "choose__wrapper"
   | "choose__arrow__left"
-  | "choose__arrow__right";
+  | "choose__arrow__right"
+  | "choose__button_container";

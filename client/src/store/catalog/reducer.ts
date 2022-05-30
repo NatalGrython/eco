@@ -2,6 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { Catalog } from "../../types/client/catalog";
 import {
   createCatalogSuccessAction,
+  deleteCatalogSuccessAction,
   getCatalogsSuccessAction,
   updateCatalogProductsSuccessAction,
   updateCatalogSuccessAction,
@@ -27,6 +28,9 @@ export const catalogReducer = createReducer(initialState, (builder) =>
       state.catalogs = action.payload;
     })
     .addCase(updateCatalogProductsSuccessAction, (state, action) => {
+      state.catalogs = action.payload;
+    })
+    .addCase(deleteCatalogSuccessAction, (state, action) => {
       state.catalogs = action.payload;
     })
 );

@@ -38,8 +38,18 @@ export class CatalogService {
     });
     return this.getCatalogById(id);
   }
-  deleteCatalog(id: string) {
-    return this.catalogRepository.delete(id);
+  async deleteCatalog(id: string) {
+    const currentCatalog = await this.catalogRepository.findOne({
+      where: { id },
+    });
+
+    await this.catalogRepository
+      .createQueryBuilder('catalog')
+      .where('id =: id', { id })
+      .delete()
+      .execute();
+
+    return currentCatalog;
   }
 
   saveCatalog(catalog: Catalog) {

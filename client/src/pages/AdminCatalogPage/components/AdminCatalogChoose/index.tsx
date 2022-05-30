@@ -31,7 +31,7 @@ const AdminCatalogChoose: FC<AdminCatalogChooseProps> = () => {
           items={[
             createItemProps(item.id),
             ...item.products.map<ProductProps>((product) => ({
-              imagePath: product.imagePath,
+              imagePath: product?.imagePath,
               edit: true,
               onEdit: () => {
                 navigator(`/create/${product.id}?catalogId=${item.id}`);

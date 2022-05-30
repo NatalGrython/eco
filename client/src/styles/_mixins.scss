@@ -48,11 +48,11 @@
   }
 }
 
-@mixin small_button {
+@mixin small_button($color: $secondary_color) {
   width: 40px;
   height: 40px;
   border-radius: 73px;
-  background-color: $secondary_color;
+  background-color: $color;
   border: none;
   transition: all 1s;
   display: flex;

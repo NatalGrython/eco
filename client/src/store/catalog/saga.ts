@@ -4,6 +4,7 @@ import {
   updateCatalogApi,
   getCatalogsApi,
   getCatalogApi,
+  deleteCatalogApi,
 } from "../../api/catalog";
 import { callTs, selectTs } from "../../types/store";
 import {
@@ -17,9 +18,12 @@ import {
   updateCatalogSuccessAction,
   updateCatalogProductsAction,
   updateCatalogProductsSuccessAction,
+  deleteCatalogRejectAction,
+  deleteCatalogSuccessAction,
 } from "./action";
 import {
   CREATE_CATALOG,
+  DELETE_CATALOG,
   GET_CATALOGS,
   UPDATE_CATALOG,
   UPDATE_CATALOG_PRODUCTS,
@@ -81,9 +85,24 @@ function* updateCatalogProducts(
   yield put(updateCatalogProductsSuccessAction(newCatalogs));
 }
 
+function* deleteCatalog(action: any) {
+  try {
+    const catalogId = action.payload;
+    const deletedCatalog = yield* callTs(deleteCatalogApi, catalogId);
+    const allCatalogs = yield* selectTs((state) => state.catalog.catalogs);
+    const catalogsWithoutCurrent = allCatalogs.filter(
+      (catalog) => catalog.id !== deletedCatalog.id
+    );
+    yield put(deleteCatalogSuccessAction(catalogsWithoutCurrent));
+  } catch (error) {
+    yield put(deleteCatalogRejectAction());
+  }
+}
+
 export function* catalogWatcher() {
   yield takeLatest(CREATE_CATALOG, createCatalog);
   yield takeLeading(GET_CATALOGS, getCatalogs);
   yield takeLatest(UPDATE_CATALOG, updateCatalog);
   yield takeEvery(UPDATE_CATALOG_PRODUCTS, updateCatalogProducts);
+  yield takeEvery(DELETE_CATALOG, deleteCatalog);
 }

@@ -3,11 +3,19 @@ import Product, { ProductProps } from "../Product";
 import classNames from "./index.module.scss";
 
 import Carousel, { CarouselRef } from "../UI/Carousel";
-import { CarouselArrowLeft, CarouselArrowRight, Edit } from "../../icons";
+import {
+  CarouselArrowLeft,
+  CarouselArrowRight,
+  Delete,
+  Edit,
+} from "../../icons";
 import { useOutsideClick } from "../../hooks";
 import UserInput from "../UI/UserInput";
 import { useDispatch } from "react-redux";
-import { updateCatalogAction } from "../../store/catalog/action";
+import {
+  deleteCatalogAction,
+  updateCatalogAction,
+} from "../../store/catalog/action";
 
 interface ChooseProps {
   title?: string;
@@ -36,6 +44,12 @@ const Choose: FC<ChooseProps> = ({
 
   const editCatalogValue = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
+  };
+
+  const onDeleteCatalog = () => {
+    if (catalogId) {
+      dispatch(deleteCatalogAction(catalogId));
+    }
   };
 
   const sliderRef = useRef<CarouselRef>(null);
@@ -70,14 +84,24 @@ const Choose: FC<ChooseProps> = ({
                 <h2 className={classNames["choose__title"]}>{title}</h2>
               )}
               {editable && (
-                <button
-                  onClick={() => {
-                    setEdit(true);
-                  }}
-                  className={classNames.choose__edit__button}
-                >
-                  <Edit />
-                </button>
+                <div className={classNames.choose__button_container}>
+                  <button
+                    onClick={() => {
+                      setEdit(true);
+                    }}
+                    className={classNames.choose__edit__button}
+                  >
+                    <Edit />
+                  </button>
+                  <button
+                    onClick={() => {
+                      onDeleteCatalog();
+                    }}
+                    className={classNames.choose__delete__button}
+                  >
+                    <Delete />
+                  </button>
+                </div>
               )}
             </div>
             <div className={classNames.choose__three_container}>
@@ -116,14 +140,24 @@ const Choose: FC<ChooseProps> = ({
               <h2 className={classNames["choose__title"]}>{title}</h2>
             )}
             {editable && (
-              <button
-                onClick={() => {
-                  setEdit(true);
-                }}
-                className={classNames.choose__edit__button}
-              >
-                <Edit />
-              </button>
+              <div className={classNames.choose__button_container}>
+                <button
+                  onClick={() => {
+                    setEdit(true);
+                  }}
+                  className={classNames.choose__edit__button}
+                >
+                  <Edit />
+                </button>
+                <button
+                  onClick={() => {
+                    onDeleteCatalog();
+                  }}
+                  className={classNames.choose__delete__button}
+                >
+                  <Delete />
+                </button>
+              </div>
             )}
           </div>
           <Carousel
