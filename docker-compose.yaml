@@ -39,7 +39,7 @@ services:
       ECO_CLIENT_PORT: ${CLIENT_PORT}
       ECO_JWT_SECRET: ${JWT_SECRET}
     ports:
-      - "3000:80"
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
     restart: always
     links:
       - backend
