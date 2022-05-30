@@ -1,0 +1,7 @@
+name: Update action
+on: [push]
+jobs:
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello"
