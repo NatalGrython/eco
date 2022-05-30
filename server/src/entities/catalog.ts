@@ -21,6 +21,7 @@ export class Catalog {
   @OneToMany(() => Product, (product) => product.catalog, {
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
+    createForeignKeyConstraints: false,
   })
   @JoinColumn()
   products: Product[];
