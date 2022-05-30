@@ -26,7 +26,9 @@ const Basket: FC<BasketProps> = () => {
   }, 0);
 
   const onCreate = () => {
-    dispatch(checkoutOrder());
+    if (basketProducts.length) {
+      dispatch(checkoutOrder());
+    }
   };
 
   const onClose = () => {
@@ -41,17 +43,23 @@ const Basket: FC<BasketProps> = () => {
           <div className={classNames.basket}>
             <h2 className={classNames["basket__title"]}>Корзина</h2>
             <div className={classNames["basket__products__container"]}>
-              {basketProducts.map((item) => (
-                <BasketProduct
-                  id={item.id}
-                  key={item.id}
-                  price={item.price}
-                  weigh={item.weight}
-                  title={item.name}
-                  imagePath={item.imagePath}
-                  amount={item.amount}
-                />
-              ))}
+              {basketProducts.length ? (
+                basketProducts.map((item) => (
+                  <BasketProduct
+                    id={item.id}
+                    key={item.id}
+                    price={item.price}
+                    weigh={item.weight}
+                    title={item.name}
+                    imagePath={item.imagePath}
+                    amount={item.amount}
+                  />
+                ))
+              ) : (
+                <span className={classNames.void_text}>
+                  Вы еще ничего не выбрали
+                </span>
+              )}
             </div>
             <div className={classNames["basket__total"]}>
               <div className={classNames["basket__total_wrapper"]}>
