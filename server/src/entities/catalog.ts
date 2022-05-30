@@ -19,9 +19,7 @@ export class Catalog {
   imagePath: string;
 
   @OneToMany(() => Product, (product) => product.catalog, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-    createForeignKeyConstraints: false,
+    cascade: true,
   })
   products: Product[];
 }
