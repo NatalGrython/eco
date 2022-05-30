@@ -11,9 +11,10 @@ export const catalogsSelector = (state: RootState) => {
       const candidate = products.find((product) => product.id === id);
       return candidate!;
     });
+    const filtredCatalogProducts = catalogProducts.filter((item) => !!item);
     return {
       ...catalog,
-      products: catalogProducts,
+      products: filtredCatalogProducts,
     };
   });
 
@@ -29,8 +30,9 @@ export const favoriteProductSelector = (state: RootState) => {
     const candidate = products.find((product) => product.id === id);
     return candidate!;
   });
+  const filtredFavoriteProducts = favoriteProducts.filter((item) => !!item);
   return {
-    favoriteProducts,
+    favoriteProducts: filtredFavoriteProducts,
   };
 };
 export const basketProductSelector = (state: RootState) => {
@@ -38,10 +40,15 @@ export const basketProductSelector = (state: RootState) => {
   const basket = state.basket;
   const basketProducts = basket.products.map(({ product: { id }, amount }) => {
     const candidate = products.find((product) => product.id === id)!;
-    return { ...candidate, amount };
+    if (candidate) {
+      return { ...candidate, amount };
+    } else {
+      return undefined;
+    }
   });
+  const filtredBasketProducts = basketProducts.filter((item) => !!item);
   return {
-    basketProducts,
+    basketProducts: filtredBasketProducts,
   };
 };
 

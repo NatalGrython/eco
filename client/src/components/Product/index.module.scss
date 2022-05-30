@@ -16,6 +16,13 @@
       left: calc(90% - 20px);
     }
 
+    .product_delete_btn {
+      @include small_button(#fc3f3f);
+      position: absolute;
+      top: calc(100% - 20px);
+      left: calc(90% - 70px);
+    }
+
     .product_preview_catalog_btn {
       @include big_button;
       position: absolute;

@@ -5,6 +5,9 @@ import {
   CREATE_PRODUCT,
   CREATE_PRODUCT_REJECT,
   CREATE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT,
+  DELETE_PRODUCT_REJECT,
+  DELETE_PRODUCT_SUCCESS,
   GET_PRODUCTS,
   GET_PRODUCTS_REJECT,
   GET_PRODUCTS_SUCCESS,
@@ -36,3 +39,9 @@ export const getProductsRejectAction = createAction(GET_PRODUCTS_REJECT);
 export const updateFavoriteProductAction = createAction(
   UPDATE_FAVORITE_PRODUCT
 );
+
+export const deleteProductAction = createAction<number>(DELETE_PRODUCT);
+export const deleteProductSuccessAction = createAction<Product[]>(
+  DELETE_PRODUCT_SUCCESS
+);
+export const deleteProductRejectAction = createAction(DELETE_PRODUCT_REJECT);

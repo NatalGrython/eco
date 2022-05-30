@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from "react";
-import { Cart, Edit, Like, Plus } from "../../icons";
+import { Cart, Delete, Edit, Like, Plus } from "../../icons";
 import classNames from "./index.module.scss";
 import { Product as ProductType } from "../../types/client/product";
 import createProductImage from "@images/default-new.png";
@@ -34,6 +34,7 @@ interface ProductEditProps extends ProductPickedProps {
   preview?: undefined;
   create?: undefined;
   onEdit: () => void;
+  onDelete: () => void;
 }
 
 interface ProductOnlyProps extends ProductPickedProps {
@@ -121,7 +122,7 @@ const Product: FC<ProductProps> = (props) => {
   }
 
   if (edit) {
-    const { name, imagePath, price, weight, onEdit } = props;
+    const { name, imagePath, price, weight, onEdit, onDelete } = props;
     return (
       <div className={classNames.product}>
         <div
@@ -130,6 +131,12 @@ const Product: FC<ProductProps> = (props) => {
         >
           <button onClick={onEdit} className={classNames["product__like_btn"]}>
             <Edit />
+          </button>
+          <button
+            onClick={onDelete}
+            className={classNames["product_delete_btn"]}
+          >
+            <Delete />
           </button>
         </div>
         <div className={classNames["product__info"]}>

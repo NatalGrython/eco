@@ -1,14 +1,17 @@
-import { put, takeLatest, takeLeading } from "redux-saga/effects";
+import { put, takeEvery, takeLatest, takeLeading } from "redux-saga/effects";
 import {
   createProductApi,
   getProductsApi,
   updateProductApi,
 } from "../../api/product";
+import { deleteProductApi } from "../../api/product/delete";
 import { callTs, selectTs } from "../../types/store";
 import { updateCatalogProductsAction } from "../catalog/action";
 import {
   createProductRejectAction,
   createProductSuccessAction,
+  deleteProductRejectAction,
+  deleteProductSuccessAction,
   getProductsRejectAction,
   getProductsSuccessAction,
   updateProductRejectAction,
@@ -16,6 +19,7 @@ import {
 } from "./action";
 import {
   CREATE_PRODUCT,
+  DELETE_PRODUCT,
   GET_PRODUCTS,
   UPDATE_FAVORITE_PRODUCT,
   UPDATE_PRODUCT,
@@ -89,9 +93,23 @@ function* updateFavoriteProduct(action: any) {
   yield put(getProductsSuccessAction(allProducts));
 }
 
+function* deleteProduct(action: any) {
+  try {
+    yield* callTs(deleteProductApi, action.payload);
+    const allProducts = yield* selectTs((state) => state.product.products);
+    const productsWithout = allProducts.filter(
+      (item) => item.id !== action.payload
+    );
+    yield put(deleteProductSuccessAction(productsWithout));
+  } catch (error) {
+    yield put(deleteProductRejectAction());
+  }
+}
+
 export function* productWatcher() {
   yield takeLatest(CREATE_PRODUCT, createProduct);
   yield takeLeading(GET_PRODUCTS, getProducts);
   yield takeLatest(UPDATE_PRODUCT, updateProduct);
   yield takeLatest(UPDATE_FAVORITE_PRODUCT, updateFavoriteProduct);
+  yield takeEvery(DELETE_PRODUCT, deleteProduct);
 }

@@ -3,14 +3,16 @@ import classNames from "./index.module.scss";
 import Choose from "../../../../components/Choose";
 import { ProductProps } from "../../../../components/Product";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { catalogsSelector } from "../../../../store/selectors";
+import { deleteProductAction } from "../../../../store/product/action";
 
 interface AdminCatalogChooseProps {}
 
 const AdminCatalogChoose: FC<AdminCatalogChooseProps> = () => {
   const { catalogs } = useSelector(catalogsSelector);
   const navigator = useNavigate();
+  const dispatch = useDispatch();
 
   const createItemProps = (catalogId: number): ProductProps => ({
     id: 100,
@@ -19,6 +21,8 @@ const AdminCatalogChoose: FC<AdminCatalogChooseProps> = () => {
       navigator(`/create?catalogId=${catalogId}`);
     },
   });
+
+  console.log(catalogs);
 
   return (
     <div className={classNames["admin-catalog-choose"]}>
@@ -34,13 +38,16 @@ const AdminCatalogChoose: FC<AdminCatalogChooseProps> = () => {
               imagePath: product?.imagePath,
               edit: true,
               onEdit: () => {
-                navigator(`/create/${product.id}?catalogId=${item.id}`);
+                navigator(`/create/${product?.id}?catalogId=${item?.id}`);
               },
-              name: product.name,
-              price: product.price,
-              weight: product.weight,
-              id: product.id,
-              liked: product.liked,
+              onDelete: () => {
+                dispatch(deleteProductAction(product?.id));
+              },
+              name: product?.name,
+              price: product?.price,
+              weight: product?.weight,
+              id: product?.id,
+              liked: product?.liked,
             })),
           ]}
         />

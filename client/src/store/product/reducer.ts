@@ -2,6 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { Product } from "../../types/client/product";
 import {
   createProductSuccessAction,
+  deleteProductSuccessAction,
   getProductsSuccessAction,
   updateProductSuccessAction,
 } from "./action";
@@ -23,6 +24,9 @@ export const productReducer = createReducer(initialState, (builder) =>
       state.products.push(action.payload);
     })
     .addCase(updateProductSuccessAction, (state, action) => {
+      state.products = action.payload;
+    })
+    .addCase(deleteProductSuccessAction, (state, action) => {
       state.products = action.payload;
     })
 );
