@@ -76,3 +76,9 @@
     background-image: $path;
   }
 }
+
+@mixin adaptive($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

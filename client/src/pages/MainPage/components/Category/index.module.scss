@@ -5,12 +5,13 @@
     max-width: 793px;
     .category__title {
       @include text(36px, 600, 40px);
+      @include adaptive(map-get($breakpoints, middle)) {
+        @include text(32px, 600, 40px);
+      }
     }
   }
 
   .category__wrapper {
-    display: flex;
-    justify-content: space-between;
     margin-top: 32px;
   }
 }

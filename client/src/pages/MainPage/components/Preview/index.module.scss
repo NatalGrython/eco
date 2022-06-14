@@ -12,7 +12,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      @include adaptive(map-get($breakpoints, middle-small)) {
+        align-items: center;
+        gap: 20px;
+      }
       .preview__title {
         @include text(36px, 600, 40px, $primary_color);
       }
@@ -31,6 +34,9 @@
       background-size: cover;
       width: 650px;
       height: 314px;
+      @include adaptive(map-get($breakpoints, middle-small)) {
+        display: none;
+      }
     }
   }
 }

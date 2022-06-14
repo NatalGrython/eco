@@ -1,15 +1,28 @@
 .quality {
   @include main(100px);
   height: 952px;
+  @include adaptive(map-get($breakpoints, smallere)) {
+    height: auto;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
   .quality__wrapper {
     display: flex;
     justify-content: space-between;
     height: 100%;
+    @include adaptive(map-get($breakpoints, smallere)) {
+      flex-direction: column;
+      gap: 50px;
+    }
+    gap: 30px;
     .quality__container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       max-width: 560px;
+      @include adaptive(map-get($breakpoints, smallere)) {
+        gap: 25px;
+      }
 
       .quality__description__wrapper {
         display: flex;
@@ -23,6 +36,10 @@
           flex: 0 1 50%;
           .quality__title {
             @include text(36px, 600, 40px);
+
+            @include adaptive(map-get($breakpoints, middle-small)) {
+              @include text(32px, 600, 40px);
+            }
           }
 
           .quality__text {
@@ -39,15 +56,18 @@
       }
       .quality__image_1 {
         background-image: url("@images/mounts.png");
-        width: 560px;
-        height: 360px;
+        max-width: 560px;
+        max-height: 360px;
         background-size: cover;
         flex: 0 1 360px;
+        @include adaptive(map-get($breakpoints, smallere)) {
+          order: 2;
+        }
       }
       .quality__image_2 {
         background-image: url("@images/shampoo.png");
-        width: 560px;
-        height: 360px;
+        max-width: 560px;
+        max-height: 360px;
         background-size: cover;
         flex: 0 1 360px;
       }

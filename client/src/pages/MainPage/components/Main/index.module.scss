@@ -23,17 +23,28 @@
   height: 100%;
   position: absolute;
   left: calc(100% - 628px);
+  @include adaptive(map-get($breakpoints, phone)) {
+    left: calc(100% - 428px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .main__title {
   flex: 0 1 42%;
   @include circle(calc(100% - 32.5px), calc(100% - 27.5px));
   @include text(48px, 600, 54px);
+  @include adaptive(map-get($breakpoints, middle)) {
+    @include text(44px, 600, 54px);
+  }
 }
 
 .main__description {
   flex: 0 1 10%;
   @include text(18px, 400, 20px);
+  @include adaptive(map-get($breakpoints, middle)) {
+    @include text(16px, 400, 20px);
+  }
 }
 
 .main__button {

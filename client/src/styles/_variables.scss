@@ -4,3 +4,10 @@ $text_color: #221f1f;
 
 $text_family: "Comfortaa";
 $danger_color: #dc3545;
+
+$breakpoints: (
+  middle: 1440px,
+  middle-small: 1200px,
+  smallere: 800px,
+  phone: 710px,
+);

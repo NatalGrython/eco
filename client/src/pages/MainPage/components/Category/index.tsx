@@ -4,12 +4,13 @@ import classNames from "./index.module.scss";
 import img from "@images/main.png";
 import { useSelector } from "react-redux";
 import { catalogsSelector } from "../../../../store/selectors";
+import Carousel from "../../../../components/UI/Carousel";
 
 interface CategoryProps {}
 
 const Category: FC<CategoryProps> = () => {
   const { catalogs } = useSelector(catalogsSelector);
-
+  console.log({ catalogs });
   return (
     <div className={classNames.category}>
       <div className="container">
@@ -19,14 +20,25 @@ const Category: FC<CategoryProps> = () => {
           </h2>
         </div>
         <div className={classNames["category__wrapper"]}>
-          {catalogs.map((item) => (
+          <Carousel
+            carouselOptions={{}}
+            items={catalogs.map((catalog) => ({
+              imagePath: img,
+              title: catalog.name,
+              path: `catalog/${catalog.id}`,
+              id: catalog.id,
+            }))}
+            keyExtractor={(item) => item.id}
+            component={CategoryCard}
+          />
+          {/* {catalogs.map((item) => (
             <CategoryCard
               key={item.id}
-              imagePath={item.imagePath}
+              imagePath={img ?? item.imagePath}
               title={item.name}
               path={`catalog/${item.id}`}
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

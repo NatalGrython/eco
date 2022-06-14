@@ -7,6 +7,7 @@ interface CategoryCardProps {
   title: string;
   path: string;
   imagePath: string;
+  id: number;
 }
 
 const CategoryCard: FC<CategoryCardProps> = ({ title, path, imagePath }) => {
