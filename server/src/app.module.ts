@@ -49,9 +49,9 @@ import { OrderModule } from './order/order.module';
     BasketModule,
     CatalogModule,
     MulterModule.register(),
-    ServeStaticModule.forRoot({
-      rootPath: './public',
-    }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: './public',
+    // }),
     FavoriteModule,
     OrderModule,
   ],

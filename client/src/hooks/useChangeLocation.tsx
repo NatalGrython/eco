@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 export const useChangeLocation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scroll({
-      left: 0,
-      top: 0,
-    });
+    animateScroll.scrollToTop();
   }, [location]);
 };

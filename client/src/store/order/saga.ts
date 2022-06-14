@@ -94,12 +94,8 @@ function* getOrders() {
         yield put(
           getOrdersSuccessAction(
             orders.map((order) => ({
-              id: order.id,
-              status: order.status,
-              timestamp: order.timestamp,
               products: order.orderToProduct,
-              address: order.address,
-              user: order.user,
+              ...order,
             }))
           )
         );

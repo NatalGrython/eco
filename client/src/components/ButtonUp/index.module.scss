@@ -1,0 +1,7 @@
+.button {
+  position: fixed;
+  top: calc(100% - 100px);
+  left: calc(100% - 75px);
+  @include small_button;
+  transform: rotate(270deg);
+}

@@ -15,7 +15,10 @@ const MainOrderAdminPage: FC<MainOrderAdminPageProps> = () => {
       <div className="container">
         <div className={classNames["main-order__content"]}>
           {orders.map((item) => (
-            <AdminOrder key={item.id} {...item} />
+            <>
+              {console.log(item)}
+              <AdminOrder key={item.id} {...item} />
+            </>
           ))}
         </div>
       </div>

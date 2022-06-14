@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
+import ButtonUp from "../ButtonUp";
 import Footer from "../Footer";
 import Header from "../Header";
 
@@ -11,6 +12,7 @@ const Layout: FC<LayoutProps> = () => {
       <Header />
       <Outlet />
       <Footer />
+      <ButtonUp />
     </div>
   );
 };

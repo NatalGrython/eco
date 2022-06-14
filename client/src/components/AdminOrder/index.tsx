@@ -93,13 +93,17 @@ const AdminOrder: FC<AdminOrderProps> = ({
               <span
                 className={classNames["admin-order__main__description__text"]}
               >
-                Адрес доставки: {address.address}, {address.flat}, примечание к
-                заказу: {address.comment ?? "Нет"}
+                Адрес доставки: {address.address}, {address.flat}
               </span>
               <span
                 className={classNames["admin-order__main__description__text"]}
               >
-                Номер телефона:
+                Примечание к заказу: {address.comment ?? "Нет"}
+              </span>
+              <span
+                className={classNames["admin-order__main__description__text"]}
+              >
+                Номер телефона: {address.phone}
               </span>
             </div>
           </div>
