@@ -20,25 +20,15 @@ const Category: FC<CategoryProps> = () => {
           </h2>
         </div>
         <div className={classNames["category__wrapper"]}>
-          <Carousel
-            carouselOptions={{}}
-            items={catalogs.map((catalog) => ({
-              imagePath: img,
-              title: catalog.name,
-              path: `catalog/${catalog.id}`,
-              id: catalog.id,
-            }))}
-            keyExtractor={(item) => item.id}
-            component={CategoryCard}
-          />
-          {/* {catalogs.map((item) => (
+          {catalogs.map((item) => (
             <CategoryCard
+              id={item.id}
               key={item.id}
               imagePath={img ?? item.imagePath}
               title={item.name}
               path={`catalog/${item.id}`}
             />
-          ))} */}
+          ))}
         </div>
       </div>
     </div>

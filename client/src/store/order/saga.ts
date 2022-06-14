@@ -1,5 +1,6 @@
 import jwtDecode from "jwt-decode";
-import { put, takeEvery } from "redux-saga/effects";
+import { toast } from "react-toastify";
+import { call, put, takeEvery } from "redux-saga/effects";
 import {
   createOrderApi,
   getAllOrdersIdApi,
@@ -62,6 +63,10 @@ function* createOrder(action: any) {
           basket.products.map((item) => ({ id: item.product.id, amount: 0 }))
         )
       );
+      yield put(closeBasketAction());
+      yield* callTs(toast, "Заказ успешно создан", {
+        type: "success",
+      });
       yield put(closeBasketAction());
     }
   } catch (error) {

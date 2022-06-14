@@ -27,6 +27,7 @@ import { callTs } from "../../types/store";
 import { registrationApi, vkAuthApi, loginApi } from "../../api/auth";
 import { Token } from "../../types/client/auth";
 import { getOrdersAction } from "../order/actions";
+import { toast } from "react-toastify";
 
 function* authorizationSuccess(token: string) {
   localStorage.setItem("token", token);
@@ -47,6 +48,9 @@ function* registration(action: ReturnType<typeof registrationStartedAction>) {
     const { token } = yield* callTs(registrationApi, action.payload);
     yield* authorizationSuccess(token);
   } catch (error) {
+    yield* callTs(toast, "Ошибка при регистрации", {
+      type: "error",
+    });
     yield put(registrationRejectedAction());
   }
 }
@@ -56,6 +60,9 @@ function* login(action: ReturnType<typeof loginStartedAction>) {
     const { token } = yield* callTs(loginApi, action.payload);
     yield* authorizationSuccess(token);
   } catch (error) {
+    yield* callTs(toast, "Ошибка при авторизации", {
+      type: "error",
+    });
     yield put(loginRejectedAction());
   }
 }

@@ -11,3 +11,12 @@ $breakpoints: (
   smallere: 800px,
   phone: 710px,
 );
+
+:root {
+  --toastify-toast-width: 290px;
+  --toastify-toast-max-height: 80px;
+  --toastify-toast-min-height: 80px;
+  --toastify-color-success: #08db11;
+  --toastify-icon-color-error: #dc3545;
+  --toastify-font-family: "Comfortaa";
+}
