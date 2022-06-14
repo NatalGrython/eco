@@ -39,8 +39,10 @@ export class OrderService {
       .getMany();
   }
 
-  updateOrder(id: string, updateOrderDto: UpdateOrderDto) {
-    return this.orderRepository.update(id, { status: updateOrderDto.status });
+  async updateOrder(id: string, updateOrderDto: UpdateOrderDto) {
+    await this.orderRepository.update(id, { status: updateOrderDto.status });
+    const allOrders = await this.findAll();
+    return allOrders.find((order) => order.id === Number(id));
   }
 
   async createOrder(createOrderDto: CreateOrderDto) {

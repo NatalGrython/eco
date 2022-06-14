@@ -20,7 +20,6 @@
 .link {
   @include text(18px, 400, 20px);
   text-decoration: none;
-  flex: 0 1 25%;
 
   &:hover {
     border-bottom: 2px solid $secondary_color;
@@ -41,6 +40,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    &:hover {
+      border-bottom: 2px solid $secondary_color;
+    }
     .action__text {
       @include text(18px, 400, 20px);
       text-decoration: none;

@@ -16,9 +16,10 @@ export const useLogin = () => {
     },
     validationSchema: object({
       password: string()
+        .trim()
         .min(8, "Пароль должен быть больше 8 символов")
         .required("Обязательное поле"),
-      login: string().required("Обязательное поле"),
+      login: string().trim().required("Обязательное поле"),
     }),
   });
 };

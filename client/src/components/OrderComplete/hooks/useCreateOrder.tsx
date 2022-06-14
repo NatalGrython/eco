@@ -14,9 +14,9 @@ export const useCreateOrder = () => {
     initialValues: {
       address: user?.address ?? "",
       entrance: user?.entrance ?? "",
-      intercom: user?.intercom ?? 0,
-      flat: user?.flat ?? 0,
-      floor: user?.floor ?? 0,
+      intercom: user?.intercom ?? "",
+      flat: user?.flat ?? "",
+      floor: user?.floor ?? "",
       comment: user?.comment ?? "",
       phone: "",
     },

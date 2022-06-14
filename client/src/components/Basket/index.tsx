@@ -77,7 +77,7 @@ const Basket: FC<BasketProps> = () => {
                 onClick={onCreate}
                 className={classNames["basket__total_button"]}
               >
-                <span>Оплатить</span>
+                <span>Оформить заказ</span>
               </button>
             </div>
           </div>

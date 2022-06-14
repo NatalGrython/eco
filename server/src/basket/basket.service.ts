@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Basket } from 'src/entities/basket';
 import { BasketToProduct } from 'src/entities/basket-to-product';

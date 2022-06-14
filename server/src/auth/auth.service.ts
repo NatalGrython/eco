@@ -130,7 +130,7 @@ export class AuthService {
   private async validateUser(loginUserDto: loginDto) {
     const candidate = await this.userService.findByLogin(loginUserDto.login);
     if (candidate) {
-      const passwordEquals = compare(
+      const passwordEquals = await compare(
         loginUserDto.password,
         candidate?.password,
       );

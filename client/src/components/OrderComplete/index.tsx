@@ -1,9 +1,10 @@
 import { useFormik } from "formik";
 import React, { FC, useRef } from "react";
 import ReactModal from "react-modal";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { useOutsideClick } from "../../hooks";
 import { RootState } from "../../store";
+import { openBasketAction } from "../../store/basket/action";
 import { closeOrdersModal, createOrderAction } from "../../store/order/actions";
 import Logo from "../Header/Logo";
 import UserButton from "../UI/UserButton";
@@ -52,6 +53,13 @@ const OrderComplete: FC<OrderCompleteProps> = () => {
 
   const { values, errors, handleSubmit, handleChange } = useCreateOrder();
 
+  const onClickReturn = () => {
+    batch(() => {
+      dispatch(closeOrdersModal());
+      dispatch(openBasketAction());
+    });
+  };
+
   return (
     <ReactModal contentRef={refInitial} style={customStyles} isOpen={isOpen}>
       <div className={classNames["order-complete"]}>
@@ -63,6 +71,7 @@ const OrderComplete: FC<OrderCompleteProps> = () => {
               </div>
               <div className={classNames["order-complete__header__buttons"]}>
                 <button
+                  onClick={onClickReturn}
                   className={classNames["order-complete__header__button"]}
                 >
                   <span>Вернуться к корзине</span>
