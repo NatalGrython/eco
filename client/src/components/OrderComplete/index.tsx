@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+//@ts-nocheck
 import React, { FC, useRef } from "react";
 import ReactModal from "react-modal";
 import { batch, useDispatch, useSelector } from "react-redux";

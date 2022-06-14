@@ -5,10 +5,11 @@ export interface IdEntity {
 export interface Address {
   address?: string;
   entrance?: string;
-  intercom?: number;
-  flat?: number;
-  floor?: number;
+  intercom?: string;
+  flat?: string;
+  floor?: string;
   comment?: string;
+  phone?: string;
 }
 
 export type Role = "user" | "admin";

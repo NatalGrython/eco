@@ -5,9 +5,9 @@ import classNames from "./index.module.scss";
 interface AddressProps {
   address: string;
   entrance: string;
-  intercom: number;
-  flat: number;
-  floor: number;
+  intercom: string;
+  flat: string;
+  floor: string;
   comment: string;
   phone: string;
   errors: {
