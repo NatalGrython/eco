@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Product from "../../../../components/Product";
 import Dropzone from "../../../../components/UI/Dropzone";
 import UserInput from "../../../../components/UI/UserInput";
 import classNames from "./index.module.scss";
@@ -30,28 +29,33 @@ const NewCatalog: FC<NewCatalogProps> = () => {
           <h3 className={classNames["new-catalog__title"]}>
             Создать новую категорию товаров
           </h3>
-          <div className={classNames["new-catalog__wrapper"]}>
-            <CatalogPreviewCreate
-              image={miniPreview}
-              onDrop={(files) => {
-                setMiniPreview(URL.createObjectURL(files[0]));
-                setFieldValue("mini", files[0]);
-              }}
+          <div className={classNames["new-catalog__text__container"]}>
+            <UserInput
+              name="name"
+              error={errors.name}
+              value={values.name}
+              onChange={handleChange}
+              placeholder="Добавить имя категории"
+              type="text"
             />
+          </div>
+          <div className={classNames["new-catalog__wrapper"]}>
             <div className={classNames["new-catalog__draggle"]}>
-              <div className={classNames["new-catalog__text__container"]}>
-                <UserInput
-                  name="name"
-                  error={errors.name}
-                  value={values.name}
-                  onChange={handleChange}
-                  placeholder="Добавить имя категории"
-                  type="text"
-                />
-                <span className={classNames["new-catalog__text"]}>
-                  Загрузить обложку
-                </span>
-              </div>
+              <span className={classNames["new-catalog__text"]}>
+                Загрузить обложку
+              </span>
+              <CatalogPreviewCreate
+                image={miniPreview}
+                onDrop={(files) => {
+                  setMiniPreview(URL.createObjectURL(files[0]));
+                  setFieldValue("mini", files[0]);
+                }}
+              />
+            </div>
+            <div className={classNames["new-catalog__draggle"]}>
+              <span className={classNames["new-catalog__text"]}>
+                Загрузить обложку
+              </span>
               <Dropzone
                 onDrop={(files) => {
                   setPhotoPreview(URL.createObjectURL(files[0]));
@@ -59,7 +63,7 @@ const NewCatalog: FC<NewCatalogProps> = () => {
                 }}
                 error={errors.catalog}
                 file={photoPreview}
-                widthPreview="620px"
+                widthPreview="820px"
                 heightPreview="330px"
               />
               <UserButton
