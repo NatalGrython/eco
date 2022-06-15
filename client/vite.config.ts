@@ -20,11 +20,8 @@ export default defineConfig(({ mode }) => {
 
     server: {
       proxy: {
-        "/api": {
-          rewrite: (path) => path.replace(/^\/api/, ""),
-          target: "http://localhost:5000",
-        },
-        "/public": "http://localhost:50001/",
+        "/api": "http://80.249.150.241",
+        "/public": "http://80.249.150.241",
       },
       port: 4000,
     },
