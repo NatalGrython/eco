@@ -33,7 +33,7 @@ import { OrderModule } from './order/order.module';
       password: process.env.PASSWORD_DB,
       database: process.env.DATABASE_NAME_DB,
       synchronize: true,
-      dropSchema: true,
+
       entities: [
         Order,
         OrderToProduct,
