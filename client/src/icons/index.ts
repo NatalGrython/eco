@@ -18,3 +18,4 @@ export { default as Edit } from "./Edit";
 export { default as Setting } from "./Setting";
 export { default as Error } from "./Error";
 export { default as Delete } from "./Delete";
+export { default as Burger } from "./Burger";

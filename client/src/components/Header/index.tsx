@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Cart, Search, User } from "../../icons";
+import { Burger, Cart, Search, User } from "../../icons";
 import { RootState } from "../../store";
 import { logoutAction } from "../../store/auth/actions";
 import { openAction } from "../../store/auth/actions";
@@ -115,6 +115,9 @@ const Header: FC<HeaderProps> = () => {
                   </div>
                 </>
               )}
+            </div>
+            <div className={classNames.burger}>
+              <Burger />
             </div>
           </div>
         </div>

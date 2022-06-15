@@ -7,6 +7,7 @@ declare const classNames: {
   readonly actions: "actions";
   readonly action: "action";
   readonly action__text: "action__text";
+  readonly burger: "burger";
 };
 export default classNames;
 export type ClassNames =
@@ -17,4 +18,5 @@ export type ClassNames =
   | "links"
   | "actions"
   | "action"
-  | "action__text";
+  | "action__text"
+  | "burger";
