@@ -24,6 +24,7 @@ declare const classNames: {
   readonly product__description__title: "product__description__title";
   readonly product__description__text: "product__description__text";
   readonly product__add_button: "product__add_button";
+  readonly product__mark__text: "product__mark__text";
 };
 export default classNames;
 export type ClassNames =
@@ -51,4 +52,5 @@ export type ClassNames =
   | "product__description__wrapper"
   | "product__description__title"
   | "product__description__text"
-  | "product__add_button";
+  | "product__add_button"
+  | "product__mark__text";

@@ -384,10 +384,10 @@ const ProductContent: FC<ProductProps> = (props) => {
                 <h4 className={classNames["product__description__title"]}>
                   Маркировка
                 </h4>
-                <span className={classNames["product__description__text"]}>
+                <Mark markType={product.mark} />
+                <span className={classNames.product__mark__text}>
                   {options.find((item) => item.value === product.mark)?.text}
                 </span>
-                <Mark markType={product.mark} />
               </div>
             )}
           </div>
