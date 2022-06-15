@@ -4,7 +4,7 @@ import classNames from "./index.module.scss";
 import img from "@images/main.png";
 import { useSelector } from "react-redux";
 import { catalogsSelector } from "../../../../store/selectors";
-import Carousel from "../../../../components/UI/Carousel";
+import CategoryCarousel from "../CategoryCarusel";
 
 interface CategoryProps {}
 
@@ -19,17 +19,21 @@ const Category: FC<CategoryProps> = () => {
             Здоровые, натуральные продукты, которым вы можете доверять
           </h2>
         </div>
-        <div className={classNames["category__wrapper"]}>
-          {catalogs.map((item) => (
-            <CategoryCard
-              id={item.id}
-              key={item.id}
-              imagePath={item.imagePath}
-              title={item.name}
-              path={`catalog/${item.id}`}
-            />
-          ))}
-        </div>
+        {catalogs.length <= 5 ? (
+          <div className={classNames["category__wrapper"]}>
+            {catalogs.map((item) => (
+              <CategoryCard
+                id={item.id}
+                key={item.id}
+                imagePath={item.imagePath}
+                title={item.name}
+                path={`catalog/${item.id}`}
+              />
+            ))}
+          </div>
+        ) : (
+          <CategoryCarousel catalogs={catalogs} />
+        )}
       </div>
     </div>
   );
