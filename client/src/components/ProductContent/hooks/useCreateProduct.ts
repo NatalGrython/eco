@@ -16,6 +16,7 @@ interface CreateForm {
   proteins: number;
   fats: number;
   carbohydrates: number;
+  mark: string;
 }
 
 const SUPPORTED_FORMATS = ["image/jpeg", "image/png"];
@@ -37,6 +38,7 @@ export const useCreateProduct = (catalogId: number) => {
       proteins: 0,
       fats: 0,
       carbohydrates: 0,
+      mark: "",
     },
     onSubmit: (values) => {
       if (values.product) {

@@ -19,6 +19,7 @@ declare const classNames: {
   readonly product__price__button_like: "product__price__button_like";
   readonly product__description: "product__description";
   readonly product__textarea: "product__textarea";
+  readonly product__select__wrapper: "product__select__wrapper";
   readonly product__description__wrapper: "product__description__wrapper";
   readonly product__description__title: "product__description__title";
   readonly product__description__text: "product__description__text";
@@ -46,6 +47,7 @@ export type ClassNames =
   | "product__price__button_like"
   | "product__description"
   | "product__textarea"
+  | "product__select__wrapper"
   | "product__description__wrapper"
   | "product__description__title"
   | "product__description__text"

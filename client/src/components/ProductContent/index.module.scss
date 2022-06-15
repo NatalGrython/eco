@@ -115,6 +115,12 @@
           @include text(14px, 400, 20px);
         }
 
+        .product__select__wrapper {
+          flex: 0 1 15%;
+          @include column;
+          justify-content: space-between;
+        }
+
         .product__description__wrapper {
           flex: 0 1 25%;
           @include column;

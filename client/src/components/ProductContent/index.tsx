@@ -17,6 +17,7 @@ import { useCreateProduct } from "./hooks/useCreateProduct";
 import AdminInput from "../UI/AdminInput";
 import AdminTextArea from "../UI/AdminTextarea";
 import { useUpdateProduct } from "./hooks/useUpdateProduct";
+import AdminSelect from "../UI/AdminSelect";
 
 interface ProductCreateProps {
   create: true;
@@ -44,6 +45,15 @@ type ProductProps =
   | ProductUpdateProps
   | ProductContentProps;
 
+const options = [
+  { text: "Листок жизни", value: "list" },
+  { text: "Знак качества XXI века", value: "quality" },
+  { text: "ЕС Ecolabel", value: "eco" },
+  { text: "Белый лебедь (Miljomarkt)", value: "bear" },
+  { text: "Не испытано на животных (Animal friendly)", value: "animal" },
+  { text: "Знак Vegan", value: "vegan" },
+  { text: "Бокал-вилка", value: "fork" },
+];
 const ProductContent: FC<ProductProps> = (props) => {
   const { update, create, product } = props;
   if (create) {
@@ -155,8 +165,19 @@ const ProductContent: FC<ProductProps> = (props) => {
                   onChange={handleChange}
                 />
               </div>
+              <div className={classNames.product__select__wrapper}>
+                <h4 className={classNames["product__description__title"]}>
+                  Маркировка
+                </h4>
+                <AdminSelect
+                  options={options}
+                  value={values.mark}
+                  onChange={(value) => {
+                    setFieldValue("mark", value);
+                  }}
+                />
+              </div>
             </div>
-
             <button type="submit" className={classNames.product__add_button}>
               <span>Добавить товар</span>
             </button>
