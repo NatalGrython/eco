@@ -6,11 +6,11 @@ import {
   Param,
   Post,
   Put,
-  UploadedFile,
+  UploadedFiles,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { JWTAdminGuard } from 'src/auth/jwt-admin-guard';
 import { createStorage } from 'src/storage';
 import { createPath } from 'src/storage/utils';
@@ -34,17 +34,19 @@ export class CatalogController {
   @UseGuards(JWTAdminGuard)
   @Post()
   @UseInterceptors(
-    FileInterceptor('catalog', {
+    FileFieldsInterceptor([{ name: 'catalog' }, { name: 'mini' }], {
       storage: createStorage('./public/images/catalogs'),
     }),
   )
   createCatalog(
     @Body() createCatalogDto: createCatalogDto,
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFiles()
+    files: { catalog: Express.Multer.File[]; mini: Express.Multer.File[] },
   ) {
     return this.catalogService.createCatalog({
       ...createCatalogDto,
-      imagePath: createPath(file.path),
+      imagePath: createPath(files.catalog[0].path),
+      miniPath: createPath(files.mini[0].path),
     });
   }
 

@@ -4,4 +4,5 @@ export class createCatalogDto {
 
 export class createCatalogWithImageDto extends createCatalogDto {
   imagePath: string;
+  miniPath: string;
 }

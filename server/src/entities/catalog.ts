@@ -18,6 +18,9 @@ export class Catalog {
   @Column()
   imagePath: string;
 
+  @Column()
+  miniPath: string;
+
   @OneToMany(() => Product, (product) => product.catalog, {
     cascade: true,
   })

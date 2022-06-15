@@ -8,21 +8,25 @@ const SUPPORTED_FORMATS = ["image/jpeg", "image/png"];
 
 export const useCreateCatalog = () => {
   const [photoPreview, setPhotoPreview] = useState(defaultPhoto);
+  const [miniPreview, setMiniPreview] = useState(defaultPhoto);
   const dispatch = useDispatch();
   return {
     ...useFormik<{
       name: string;
       catalog: File | null;
+      mini: File | null;
     }>({
       initialValues: {
         name: "",
         catalog: null,
+        mini: null,
       },
       onSubmit: (values, formik) => {
-        if (values.catalog) {
+        if (values.catalog && values.mini) {
           dispatch(createCatalogAction({ ...values, catalog: values.catalog }));
           formik.resetForm();
-          setPhotoPreview(photoPreview);
+          setPhotoPreview(defaultPhoto);
+          setMiniPreview(defaultPhoto);
         }
       },
       validationSchema: object({
@@ -35,9 +39,19 @@ export const useCreateCatalog = () => {
             }
             return false;
           }),
+        mini: mixed()
+          .required("Картинка обязательна")
+          .test("format", "Файл не является картинкой", (value) => {
+            if (value) {
+              return SUPPORTED_FORMATS.includes(value.type);
+            }
+            return false;
+          }),
       }),
     }),
     photoPreview,
     setPhotoPreview,
+    miniPreview,
+    setMiniPreview,
   };
 };

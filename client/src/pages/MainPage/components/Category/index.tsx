@@ -25,7 +25,7 @@ const Category: FC<CategoryProps> = () => {
               <CategoryCard
                 id={item.id}
                 key={item.id}
-                imagePath={item.imagePath}
+                imagePath={item.miniPath}
                 title={item.name}
                 path={`catalog/${item.id}`}
               />

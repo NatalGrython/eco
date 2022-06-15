@@ -4,11 +4,16 @@ import Dropzone from "../../../../components/UI/Dropzone";
 import UserInput from "../../../../components/UI/UserInput";
 import classNames from "./index.module.scss";
 import { useCreateCatalog } from "./hooks/useCreateCatalog";
+import CatalogPreview from "../../../../components/CatalogPreview";
+import CatalogPreviewCreate from "../CatalogPreview";
+import UserButton from "../../../../components/UI/UserButton";
 
 interface NewCatalogProps {}
 
 const NewCatalog: FC<NewCatalogProps> = () => {
   const {
+    miniPreview,
+    setMiniPreview,
     photoPreview,
     setPhotoPreview,
     values,
@@ -26,11 +31,12 @@ const NewCatalog: FC<NewCatalogProps> = () => {
             Создать новую категорию товаров
           </h3>
           <div className={classNames["new-catalog__wrapper"]}>
-            <Product
-              photoPath={photoPreview}
-              onCreate={handleSubmit}
-              create
-              id={100}
+            <CatalogPreviewCreate
+              image={miniPreview}
+              onDrop={(files) => {
+                setMiniPreview(URL.createObjectURL(files[0]));
+                setFieldValue("mini", files[0]);
+              }}
             />
             <div className={classNames["new-catalog__draggle"]}>
               <div className={classNames["new-catalog__text__container"]}>
@@ -56,6 +62,13 @@ const NewCatalog: FC<NewCatalogProps> = () => {
                 widthPreview="620px"
                 heightPreview="330px"
               />
+              <UserButton
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Cоздать категорию
+              </UserButton>
             </div>
           </div>
         </div>
