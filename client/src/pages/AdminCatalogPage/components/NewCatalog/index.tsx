@@ -42,7 +42,7 @@ const NewCatalog: FC<NewCatalogProps> = () => {
           <div className={classNames["new-catalog__wrapper"]}>
             <div className={classNames["new-catalog__draggle"]}>
               <span className={classNames["new-catalog__text"]}>
-                Загрузить обложку
+                Загрузить миниатюру
               </span>
               <CatalogPreviewCreate
                 image={miniPreview}

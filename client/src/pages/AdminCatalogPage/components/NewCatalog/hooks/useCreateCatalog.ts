@@ -2,13 +2,14 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createCatalogAction } from "../../../../../store/catalog/action";
-import defaultPhoto from "@images/default.png";
+import mini from "@images/mini.png";
+import big from "@images/big.png";
 import { mixed, object, string } from "yup";
 const SUPPORTED_FORMATS = ["image/jpeg", "image/png"];
 
 export const useCreateCatalog = () => {
-  const [photoPreview, setPhotoPreview] = useState(defaultPhoto);
-  const [miniPreview, setMiniPreview] = useState(defaultPhoto);
+  const [photoPreview, setPhotoPreview] = useState(big);
+  const [miniPreview, setMiniPreview] = useState(mini);
   const dispatch = useDispatch();
   return {
     ...useFormik<{
@@ -25,8 +26,8 @@ export const useCreateCatalog = () => {
         if (values.catalog && values.mini) {
           dispatch(createCatalogAction({ ...values, catalog: values.catalog }));
           formik.resetForm();
-          setPhotoPreview(defaultPhoto);
-          setMiniPreview(defaultPhoto);
+          setPhotoPreview(big);
+          setMiniPreview(mini);
         }
       },
       validationSchema: object({

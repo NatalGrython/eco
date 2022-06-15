@@ -18,6 +18,7 @@ import AdminInput from "../UI/AdminInput";
 import AdminTextArea from "../UI/AdminTextarea";
 import { useUpdateProduct } from "./hooks/useUpdateProduct";
 import AdminSelect from "../UI/AdminSelect";
+import Mark from "./components/Mark";
 
 interface ProductCreateProps {
   create: true;
@@ -46,6 +47,7 @@ type ProductProps =
   | ProductContentProps;
 
 const options = [
+  { text: "Нет маркировки", value: "" },
   { text: "Листок жизни", value: "list" },
   { text: "Знак качества XXI века", value: "quality" },
   { text: "ЕС Ecolabel", value: "eco" },
@@ -176,6 +178,7 @@ const ProductContent: FC<ProductProps> = (props) => {
                     setFieldValue("mark", value);
                   }}
                 />
+                <Mark markType={values.mark} />
               </div>
             </div>
             <button type="submit" className={classNames.product__add_button}>
@@ -294,6 +297,19 @@ const ProductContent: FC<ProductProps> = (props) => {
                   onChange={handleChange}
                 />
               </div>
+              <div className={classNames.product__select__wrapper}>
+                <h4 className={classNames["product__description__title"]}>
+                  Маркировка
+                </h4>
+                <AdminSelect
+                  options={options}
+                  value={values.mark}
+                  onChange={(value) => {
+                    setFieldValue("mark", value);
+                  }}
+                />
+                <Mark markType={values.mark} />
+              </div>
             </div>
             <button type="submit" className={classNames.product__add_button}>
               <span>Редактировать товар</span>
@@ -363,6 +379,17 @@ const ProductContent: FC<ProductProps> = (props) => {
                 {product.compound}
               </p>
             </div>
+            {product.mark !== "" && (
+              <div className={classNames.product__select__wrapper}>
+                <h4 className={classNames["product__description__title"]}>
+                  Маркировка
+                </h4>
+                <span className={classNames["product__description__text"]}>
+                  {options.find((item) => item.value === product.mark)?.text}
+                </span>
+                <Mark markType={product.mark} />
+              </div>
+            )}
           </div>
         </div>
       </div>

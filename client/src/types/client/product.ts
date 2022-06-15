@@ -15,4 +15,5 @@ export interface Product {
   storage: string;
   weight: number;
   liked: boolean;
+  mark: string;
 }

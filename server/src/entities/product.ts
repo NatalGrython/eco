@@ -48,6 +48,9 @@ export class Product {
   carbohydrates: number;
 
   @Column()
+  mark: string;
+
+  @Column()
   imagePath: string;
 
   @ManyToOne(() => Catalog, (catalog) => catalog.products)

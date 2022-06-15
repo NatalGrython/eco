@@ -14,4 +14,5 @@ export interface ServerProduct {
   proteins: number;
   storage: string;
   weight: number;
+  mark: string;
 }

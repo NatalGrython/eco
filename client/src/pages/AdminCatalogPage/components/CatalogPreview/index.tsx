@@ -32,9 +32,7 @@ const CatalogPreviewCreate: FC<CatalogPreviewCreateProps> = ({
         onDrop={onDrop}
       />
       {/* <h3 className={classNames["category_card_title"]}>{title}</h3> */}
-      <div className={classNames.category_card_new}>
-        Добавить новую миниатюру
-      </div>
+
       {/* <button className={classNames["category_card_button"]} onClick={onClick}>
         <ArrowRight />
       </button> */}
