@@ -152,6 +152,7 @@ export const useFilteredProducts = (products: Product[]) => {
         //@ts-ignore
         filterComplete.push(catalogFilter(value, product.catalog.id));
       } else if (key === "mark") {
+        //@ts-ignore
         filterComplete.push(markFilter(value, product.mark));
       } else {
         //@ts-ignore

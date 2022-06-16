@@ -50,6 +50,7 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
   };
 
   const checkedValue = (type: "catalogs" | "mark") => (id: number) =>
+    //@ts-ignore
     filter[type].includes(id);
 
   const onChangeCheckedValue =
@@ -59,6 +60,7 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
       } else {
         onChangeFilter({
           ...filter,
+          //@ts-ignore
           [type]: filter[type].filter((item) => item !== id),
         });
       }
@@ -155,7 +157,9 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
                     {options.map((item) =>
                       item.value ? (
                         <AdminCheckbox
+                          //@ts-ignore
                           onChange={onChangeCheckedValue("mark")(item.value)}
+                          //@ts-ignore
                           checked={checkedValue("mark")(item.value)}
                           key={item.value}
                           title={item.text}
