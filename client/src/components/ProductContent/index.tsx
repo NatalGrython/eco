@@ -46,7 +46,7 @@ type ProductProps =
   | ProductUpdateProps
   | ProductContentProps;
 
-const options = [
+export const options = [
   { text: "Нет маркировки", value: "" },
   { text: "Листок жизни", value: "list" },
   { text: "Знак качества XXI века", value: "quality" },

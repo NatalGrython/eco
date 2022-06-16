@@ -5,6 +5,7 @@ import { Product } from "../../../types/client/product";
 
 const parseFilters = (filter: {
   catalogs: number[];
+  mark: string[];
   calories: [string, string];
   fats: [string, string];
   proteins: [string, string];
@@ -12,6 +13,7 @@ const parseFilters = (filter: {
   price: [string, string];
 }) => {
   return {
+    mark: filter.mark.join("&"),
     catalogs: filter.catalogs.join("&"),
     calories: filter.calories.join("&"),
     fats: filter.fats.join("&"),
@@ -28,9 +30,11 @@ const useFilter = () => {
   const proteins = useQuery("proteins");
   const carbohydrates = useQuery("carbohydrates");
   const price = useQuery("price");
+  const mark = useQuery("mark");
 
   return {
     catalogs: catalogs ? catalogs.split("&").map((item) => Number(item)) : [],
+    mark: mark ? mark.split("&") : [],
     calories: calories
       ? (calories.split("&") as [string, string])
       : (["", ""] as [string, string]),
@@ -83,6 +87,7 @@ export const useFilters = () => {
     proteins: [string, string];
     carbohydrates: [string, string];
     price: [string, string];
+    mark: string[];
   }) => {
     navigation(
       queryBuilderRouter(location.pathname, {
@@ -104,6 +109,13 @@ export const useFilters = () => {
 };
 
 const catalogFilter = (filter: number[], value: number) => {
+  if (filter.length) {
+    return filter.includes(value);
+  }
+  return true;
+};
+
+const markFilter = (filter: string[], value: string) => {
   if (filter.length) {
     return filter.includes(value);
   }
@@ -139,6 +151,8 @@ export const useFilteredProducts = (products: Product[]) => {
       if (key === "catalogs") {
         //@ts-ignore
         filterComplete.push(catalogFilter(value, product.catalog.id));
+      } else if (key === "mark") {
+        filterComplete.push(markFilter(value, product.mark));
       } else {
         //@ts-ignore
         filterComplete.push(rangeFilter(value, product[key]));

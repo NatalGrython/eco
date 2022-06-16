@@ -8,6 +8,9 @@ declare const classNames: {
   readonly menu__catalogs: "menu__catalogs";
   readonly menu__catalogs__content: "menu__catalogs__content";
   readonly menu__catalogs__wrapper: "menu__catalogs__wrapper";
+  readonly menu__mark: "menu__mark";
+  readonly menu__mark__content: "menu__mark__content";
+  readonly menu__mark__wrapper: "menu__mark__wrapper";
   readonly menu__content: "menu__content";
   readonly menu__title: "menu__title";
   readonly menu__energy: "menu__energy";
@@ -28,6 +31,9 @@ export type ClassNames =
   | "menu__catalogs"
   | "menu__catalogs__content"
   | "menu__catalogs__wrapper"
+  | "menu__mark"
+  | "menu__mark__content"
+  | "menu__mark__wrapper"
   | "menu__content"
   | "menu__title"
   | "menu__energy"

@@ -51,7 +51,7 @@
 
 .menu {
   width: 370px;
-  height: 530px;
+  height: 730px;
   background-color: $primary_color;
 
   &__container {
@@ -67,6 +67,24 @@
       gap: 5px;
     }
     border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+    }
+  }
+  &__mark {
+    margin-top: 20px;
+    padding-top: 20px;
+    overflow-y: scroll;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    border-top: 1px solid rgb(0, 0, 0, 0.6);
 
     &__wrapper {
       display: flex;

@@ -8,6 +8,7 @@ import { catalogsSelector } from "../../../../store/selectors";
 import AdminCheckbox from "../../../../components/UI/AdminCheckbox";
 import RangeInput from "../RangeInput";
 import { useFilters } from "../../../AdminOredersPage/components/Main/hooks/useFilters";
+import { options } from "../../../../components/ProductContent";
 
 interface SearchInputWithMenuProps {
   value: string;
@@ -19,6 +20,7 @@ interface SearchInputWithMenuProps {
     proteins: [string, string];
     carbohydrates: [string, string];
     price: [string, string];
+    mark: string[];
   };
   onChangeFilter: (filter: {
     catalogs: number[];
@@ -27,6 +29,7 @@ interface SearchInputWithMenuProps {
     proteins: [string, string];
     carbohydrates: [string, string];
     price: [string, string];
+    mark: string[];
   }) => void;
 }
 
@@ -46,18 +49,20 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
     onChangeFilter({ ...filter, [type]: value });
   };
 
-  const checkedValue = (id: number) => filter.catalogs.includes(id);
+  const checkedValue = (type: "catalogs" | "mark") => (id: number) =>
+    filter[type].includes(id);
 
-  const onChangeCheckedValue = (id: number) => (checked: boolean) => {
-    if (checked) {
-      onChangeFilter({ ...filter, catalogs: [...filter.catalogs, id] });
-    } else {
-      onChangeFilter({
-        ...filter,
-        catalogs: filter.catalogs.filter((item) => item !== id),
-      });
-    }
-  };
+  const onChangeCheckedValue =
+    (type: "catalogs" | "mark") => (id: number) => (checked: boolean) => {
+      if (checked) {
+        onChangeFilter({ ...filter, [type]: [...filter[type], id] });
+      } else {
+        onChangeFilter({
+          ...filter,
+          [type]: filter[type].filter((item) => item !== id),
+        });
+      }
+    };
 
   return (
     <div className={classNames.search_input}>
@@ -88,8 +93,8 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
                   <div className={classNames.menu__catalogs__content}>
                     {catalogs.map((item) => (
                       <AdminCheckbox
-                        onChange={onChangeCheckedValue(item.id)}
-                        checked={checkedValue(item.id)}
+                        onChange={onChangeCheckedValue("catalogs")(item.id)}
+                        checked={checkedValue("catalogs")(item.id)}
                         key={item.id}
                         title={item.name}
                       />
@@ -138,6 +143,25 @@ const SearchInputWithMenu: FC<SearchInputWithMenuProps> = ({
                       onChange={onChangeRange("price")}
                       value={filter.price}
                     />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={classNames.menu__mark}>
+              <div className={classNames.menu__container}>
+                <div className={classNames.menu__mark__wrapper}>
+                  <span className={classNames.menu__title}>Маркировка</span>
+                  <div className={classNames.menu__mark__content}>
+                    {options.map((item) =>
+                      item.value ? (
+                        <AdminCheckbox
+                          onChange={onChangeCheckedValue("mark")(item.value)}
+                          checked={checkedValue("mark")(item.value)}
+                          key={item.value}
+                          title={item.text}
+                        />
+                      ) : null
+                    )}
                   </div>
                 </div>
               </div>
