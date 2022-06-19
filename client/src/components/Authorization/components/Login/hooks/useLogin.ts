@@ -11,9 +11,12 @@ export const useLogin = () => {
       password: "",
       login: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values) => {
       dispatch(loginStartedAction(values));
     },
+
     validationSchema: object({
       password: string()
         .trim()

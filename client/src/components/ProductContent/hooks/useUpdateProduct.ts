@@ -41,6 +41,8 @@ export const useUpdateProduct = (product: Product) => {
       carbohydrates: product.carbohydrates,
       mark: product.mark,
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values) => {
       if (values.product) {
         dispatch(

@@ -24,6 +24,8 @@ export const useCreateOrder = () => {
       //@ts-ignore
       dispatch(createOrderAction(values));
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     validationSchema: object({
       address: string().required("Обязательное поле"),
       entrance: number().required("Обязательное поле"),

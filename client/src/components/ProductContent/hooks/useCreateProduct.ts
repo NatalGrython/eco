@@ -40,6 +40,8 @@ export const useCreateProduct = (catalogId: number) => {
       carbohydrates: 0,
       mark: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values) => {
       if (values.product) {
         dispatch(

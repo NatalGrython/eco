@@ -22,6 +22,8 @@ export const useCreateCatalog = () => {
         catalog: null,
         mini: null,
       },
+      validateOnChange: false,
+      validateOnBlur: false,
       onSubmit: (values, formik) => {
         if (values.catalog && values.mini) {
           dispatch(createCatalogAction({ ...values, catalog: values.catalog }));

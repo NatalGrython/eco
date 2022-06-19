@@ -6,13 +6,7 @@ import EnergyContainer from "../EnergyContainer";
 import classNames from "./index.module.scss";
 import { Product as ProductType } from "../../types/client/product";
 import defaultImage from "@images/default.png";
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import {
-  createProductAction,
-  updateProductAction,
-} from "../../store/product/action";
+
 import { useCreateProduct } from "./hooks/useCreateProduct";
 import AdminInput from "../UI/AdminInput";
 import AdminTextArea from "../UI/AdminTextarea";

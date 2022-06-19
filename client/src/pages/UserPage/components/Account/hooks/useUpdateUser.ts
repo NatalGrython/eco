@@ -26,6 +26,8 @@ export const useUpdateUserInfo = (user: User | null) => {
         dispatch(updateUserAction({ ...values, id: user.id }));
       }
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     validationSchema: object({
       name: string(),
       surname: string(),

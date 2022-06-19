@@ -12,6 +12,8 @@ export const useRegistration = () => {
       confirmPassword: "",
       login: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     onSubmit: (values) => {
       dispatch(registrationStartedAction(values));
     },
