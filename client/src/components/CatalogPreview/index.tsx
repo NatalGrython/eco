@@ -19,7 +19,7 @@ const CatalogPreview: FC<CatalogPreviewProps> = ({ title, products }) => {
         <div className={classNames["catalog_preview_wrapper"]}>
           <h3 className={classNames["catalog_preview_title"]}>{title}</h3>
           <div className={classNames["catalog_preview_container"]}>
-            {products.map((item, index, array) => (
+            {products.slice(0, 3).map((item, index, array) => (
               <Product
                 key={item.id}
                 name={item.name}
