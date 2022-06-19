@@ -19,7 +19,7 @@ const Category: FC<CategoryProps> = () => {
             Здоровые, натуральные продукты, которым вы можете доверять
           </h2>
         </div>
-        {catalogs.length <= 5 ? (
+        {catalogs.length < 5 ? (
           <div className={classNames["category__wrapper"]}>
             {catalogs.map((item) => (
               <CategoryCard

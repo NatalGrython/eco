@@ -16,6 +16,7 @@ const CategoryCarousel: FC<CategoryCarouselProps> = ({ catalogs }) => {
           title: item.name,
           path: `/catalog/${item.id}`,
           ...item,
+          imagePath: item.miniPath,
         }))}
         carouselOptions={{
           dots: false,
