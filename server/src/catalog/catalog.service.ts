@@ -16,6 +16,7 @@ export class CatalogService {
       .createQueryBuilder('catalog')
       .leftJoinAndSelect('catalog.products', 'product')
       .select(['catalog', 'product.id'])
+      .orderBy('catalog.id', 'DESC')
       .getMany();
   }
 
