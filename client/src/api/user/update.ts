@@ -6,14 +6,24 @@ import { setFormData } from "../utils/form-data";
 
 export const updateUserApi = async (id: number, updateData: UpdateUserDto) => {
   try {
-    const formData = setFormData({
-      ...updateData,
-    });
-    const { data } = await apiAdapter.put<ServerUser>(`/user/${id}`, formData, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "multipart/form-data",
-      },
+    const fileExist = !!Object.values(updateData).find(
+      (item) => item instanceof File
+    );
+
+    let dataForm: any = updateData;
+
+    if (fileExist) {
+      dataForm = setFormData({
+        ...updateData,
+      });
+    }
+    const { data } = await apiAdapter.put<ServerUser>(`/user/${id}`, dataForm, {
+      headers: fileExist
+        ? {
+            Accept: "application/json",
+            "Content-Type": "multipart/form-data",
+          }
+        : undefined,
     });
     return data;
   } catch (error) {

@@ -23,7 +23,14 @@ export const useUpdateUserInfo = (user: User | null) => {
     },
     onSubmit: ({ ...values }) => {
       if (user) {
-        dispatch(updateUserAction({ ...values, id: user.id }));
+        const intercom =
+          values.intercom === "" ? undefined : Number(values.intercom);
+        const flat = values.flat === "" ? undefined : Number(values.flat);
+        const floor = values.floor === "" ? undefined : Number(values.floor);
+        dispatch(
+          //@ts-ignore
+          updateUserAction({ ...values, id: user.id, intercom, flat, floor })
+        );
       }
     },
     validateOnChange: false,
