@@ -71,7 +71,14 @@ const AdminOrder: FC<AdminOrderProps> = ({
                 <span className={classNames["admin-order__text"]}>
                   Общая сумма заказа:
                 </span>
-                <span className={classNames["admin-order__text"]}>600р</span>
+                <span className={classNames["admin-order__text"]}>
+                  {products.reduce((acc, product) => {
+                    console.log(acc, product);
+                    acc = acc + product.amount * product.price;
+                    return acc;
+                  }, 0)}{" "}
+                  Р
+                </span>
               </div>
             </div>
             <div className={classNames["admin-order__main__description"]}>
