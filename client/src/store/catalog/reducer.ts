@@ -22,7 +22,7 @@ export const catalogReducer = createReducer(initialState, (builder) =>
       state.catalogs = action.payload;
     })
     .addCase(createCatalogSuccessAction, (state, action) => {
-      state.catalogs.push(action.payload);
+      state.catalogs.unshift(action.payload);
     })
     .addCase(updateCatalogSuccessAction, (state, action) => {
       state.catalogs = action.payload;
